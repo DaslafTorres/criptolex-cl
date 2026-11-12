@@ -1,0 +1,715 @@
+Página 1 de 15 
+ 
+ CIRCULAR Nº62 
+ 
+Santiago, 19 de marzo de 2025 
+ 
+ 
+ 
+REF : IMPARTE INSTRUCCIONES DE CARÁCTER GENERAL A L AS PERSONAS NATURALES Y 
+JURÍDICAS SEÑALADAS EN EL ARTÍCULO 3, INCISO PRIMERO, DE LA LEY N°19.913 . 
+ 
+ 
+ La Ley Nº19.913 dispone que el objetivo de l a 
+Unidad de Análisis Financiero (UAF) es “prevenir e impedir la utilización del sistema financiero, 
+y de otros sectores de la actividad económica, para la comisión de alguno de los delitos 
+descritos en el artículo 27 de esta ley y en el artículo 8° de la Ley N°18.3141”. 
+ 
+ Para ello, en su artículo 2°, letra f) , faculta a la UAF 
+a “impartir instrucciones de aplicación general a las personas enumeradas en los artículos 3°, 
+inciso primero, y 4°, inciso primero, para el adecuado cumplimiento de las obligaciones 
+establecidas en el Párrafo 2º de este Título, pudiendo en cualquier momento verificar su 
+ejecución”. 
+ En el ejercicio de las facultades antes mencionadas, 
+la Unidad de Análisis Financiero dicta la presente Circular con el objetivo de poner a disposición 
+de todos los sujetos obligados, instituciones públicas, organismos de persecución penal y de la 
+ciudadanía en su conjunto, una recopilación actualizada de las normas dictadas previamente 
+por este Servicio, y así contar con una normativa clara y de fácil comprensión. 
+ 
+ En línea con las recomendaciones internacionales, 
+la presente Circular incluye un enfoque basado en riesgo s2 para la prevención del lavado de 
+activos y del financiamiento del terrorismo y el de la proliferación de armas de destrucción 
+masiva (LA/FT/FP), el cual deberá ser incorporado en las políticas y procedimientos que 
+implementen las entidades reportantes para prevenir y detectar los mencionados actos ilícitos, 
+toda vez que será el criterio rector bajo el cual la Unidad de Análisis Financiero supervisará el 
+cumplimiento de la normativa. 
+ 
+ Así, se dictan las presentes instrucciones: 
+ 
+ 
+ 
+ 
+ 
+ 
+1 El artículo 26 de la Ley N°21.732, que derogó la Ley N°18.314, señala: “(…) las referencias legales o reglamentarias al 
+delito consagrado en el artículo 8º de la Ley Nº18.314 deberán entenderse hechas al delito sancionado en el artículo 
+10 de esta ley”. Por tanto, en lo sucesivo, todas las referencias se harán a la ley vigente. 
+2 Riesgo: Se entiende como la probabilidad de que se materialice un evento negativo asociado al LA/FT/FP y su impacto 
+estimado. Es la interrelación entre las amenazas y vulnerabilidades, ajustadas por la existencia de factores mitigadores, 
+y su nivel de impacto. El g rado de certeza o la probabilidad de ocurrencia de eventos negativos, y su impacto, 
+representan el nivel o escala de riesgo, métrica que permite diferenciar eventos considerados más probables que otros 
+menos frecuentes. Evaluaciones Nacionales de Riesgos de LA, FT y FP. UAF, enero 2024.
+
+Página 2 de 15 
+ 
+PRIMERO: De las obligaciones comunes. 
+ 
+Son obligaciones comunes a todas las personas naturales y jurídicas señaladas en el artículo 3º, 
+inciso primero, de la Ley Nº19.913, en lo sucesivo “sujetos obligados”, las siguientes: 
+ 
+A. DE LA OBLIGACIÓN DE REGISTRO 
+ 
+a.1) Todos los sujetos obligados deben iniciar su proceso de solicitud de registro ante la Unidad 
+de Análisis Financiero (UAF) desde el comienzo del ejercicio de su actividad. 
+ 
+a.2) Para la inscripción en el Registro de la UAF se deberá utilizar el medio que esta defina, y 
+completar todos los campos solicitados, según se trate de una persona natural o jurídica . Una 
+vez que la UAF reciba la solicitud de registro con todos los datos, y valide que estos son 
+correctos, veraces y completos, enviará una clave de acceso al correo electrónico de la persona 
+designada para relacionarse con este Servicio, en lo sucesivo “oficial de cumplimiento”. La UAF 
+podrá solicitar información complementaria o aclaración sobre determinados antecedentes, 
+pudiendo rechazar la solicitud en caso de no corresponder a alguna de las actividades descritas 
+en el artículo 3°, inciso primero, de la Ley N°19.913. 
+ 
+a.3) La UAF requiere que la información que se ingrese sea completa , correcta y verdadera, 
+asumiendo el solicitante las eventuales responsabilidades legales en caso de que se acredite la 
+falsedad de parte de esta, o de su totalidad. 
+ 
+a.4) Es deber de todos los sujetos obligados actualizar e informar a la UAF todo cambio en los 
+campos de registro ante este Servicio, dentro de un plazo de 10 días hábiles, contados desde 
+que se produjo dicho cambio. La actualización o modificación de datos se podrá solicitar a 
+través del sitio www.uaf.cl. 
+ 
+a.5) Para poner fin al registro en la UAF se deberá remitir la solicitud respectiva a través d el 
+sitio www.uaf.cl, con los antecedentes que den cuenta del término del ejercicio de la actividad 
+por la que se encontraba inscrito en el Servicio. 
+ 
+a.6) Mientras el sujeto obligado no haya tramitado su t érmino de giro y no haya notificado 
+dicho término a la UAF, deberá seguir cumpliendo con las obligaciones legales establecidas en 
+la Ley N°19.913 y en las circulares UAF. 
+ 
+a.7) Las personas naturales o jurídicas que, estando supervisadas por la Comisión para el 
+Mercado Financiero, se inscriban voluntariamente en el Registro de la UAF, tendrán la calidad 
+plena de sujeto obligado y , por ende, deberán dar cumplimiento a todas las obligaciones 
+contenidas en la Ley N°19.913 y en las circulares UAF. 
+ 
+ 
+B. DE LA OBLIGACIÓN DE DESIGNAR UN OFICIAL DE CUMPLIMIENTO 
+ 
+b.1) Todos los sujetos obligados deberán designar un oficial de cumplimiento responsable de 
+relacionarse con la UAF, y de coordinar e implementar políticas y procedimientos de prevención 
+y detección de actos, operaciones o transacciones relacionadas con el lavado de activos y con
+
+Página 3 de 15 
+ 
+el financiamiento del terrorismo y el de la proliferación de armas de destrucción masiva 
+(LA/FT/FP), conforme con las características organizacionales propias de su entidad. 
+ 
+b.2) El oficial de cumplimiento deberá detentar un cargo de alta responsabilidad dentro de la 
+entidad, tal como gerente de área o división, a objeto de asegurar una debida independencia 
+en el ejercicio de su labor, siendo deber del sujeto obligado proveer a este de los recursos 
+humanos y tecnológicos necesarios para cumplir con su misión. Para este objetivo, el oficial de 
+cumplimiento deberá tener acceso a todas las operaciones y transacciones que realice el sujeto 
+obligado, y a toda la documentación y antecedentes pertinentes. 
+ 
+b.3) En caso de sujetos obligados persona natural , o categorizados como micro o pequeña 
+empresa según la Ley N°20.416, podrán designar como oficial de cumplimiento a la persona 
+natural, a un socio, administrador o ejecutivo. 
+ 
+b.4) La UAF n o aceptará la solicitud de registro de un o ficial de cumplimiento que haya sido 
+condenado por alguno de los delitos base establecidos en el artículo 27 de la Ley N°19.913, o 
+por el delito de lavado de activos, de asociación u organización para el lavado de dinero, o por 
+el delito de financiamiento del terrorismo. 
+ 
+b.5) La UAF no aceptará la solicitud de registro como oficial de cumplimiento de un 
+exfuncionario de la UAF, hasta seis meses después de haber cesado en su cargo en el Servicio. 
+ 
+b.6) El cambio de la persona registrada en la UAF como oficial de cumplimiento o representante 
+legal, deberá solicitarse a través del sitio www.uaf.cl dentro de un plazo de 10 días hábiles , 
+contados desde que se produjo el cambio, indicando el nombre completo, cédula nacional de 
+identidad, dirección, teléfono y correo electrónico de la nueva persona. 
+ 
+ 
+C. DE LA OBLIGACIÓN DE REPORTAR OPERACIONES SOSPECHOSAS (ROS) 
+ 
+c.1) Las operaciones sospechosas de lavado de activos o financiamiento del terrorismo, así 
+como la documentación fundante necesaria, deben ser remitidas a la UAF a través de un Reporte 
+de Operaciones Sospechosas (ROS) por el canal que defina la UAF . El oficial de cumplimiento 
+deberá completar todos los datos solicitados y cumplir todas las instrucciones definidas por la 
+UAF para completar el ROS. 
+ 
+c.2) Se entenderá por operación sospechosa de lavado de activos , todo acto, operación o 
+transacción que, de acuerdo con los usos y costumbres de la activi dad de que se trate, resulte 
+inusual o carente de justificación económica o jurídica aparente. 
+ 
+c.3) Se entenderá por operación sospechosa de financiamiento del terrorismo todo acto, 
+operación o transacci ón que pudiera constituir alguna de las conductas contempladas en el 
+artículo 10 de la Ley Nº21.732. 
+ 
+c.4) El ROS no tiene una periodicidad o un monto monetario establecido s. Deben ser 
+reportadas a la UAF, en el menor tiempo posible, todas las operaciones sospechosas de las que 
+se tenga conocimiento en el ejercicio de la actividad profesional, comercial o empresarial, así
+
+Página 4 de 15 
+ 
+como acompañar la documentación fundante necesaria , debiendo cumplirse todas las 
+instrucciones definidas por la UAF. 
+ 
+c.5) Para cumplir lo anterior, los sujetos obligados deben establecer procedimientos internos 
+que garanticen la seguridad, confidencialidad y oportunidad de la información que será enviada 
+a la UAF a través de un ROS. Dichos procedimientos deben constar en el Manual de Prevención 
+y Detección del Lavado de Activos y del Financiamiento del Terrorismo y el de la Proliferación 
+de Armas de Destrucción Masiva (LA/FT/FP) de la entidad. 
+ 
+c.6) Los sujetos obligados deberán utilizar la Guía de Señales de Alerta que la UAF ponga a 
+disposición en el sitio www.uaf.cl, y podrán utilizar sus propias señales de alerta con los 
+comportamientos o características de ciertas operaciones o personas que podrían conducir a 
+detectar una operación sospechosa de LA/FT/FP. 
+ 
+c.7) Los sujetos obligados deberán realizar el análisis de las potenciales operaciones 
+sospechosas de manera estructurada, documentando las fases de análisis, gestiones realizadas 
+y fuentes de información consultadas. El proceso de análisis deberá considerar toda la operativa 
+relacionada, los intervinientes en la operación y la información relevante que posea el sujeto 
+obligado. Dicha documentación se mantendrá a disposición de la UAF y deberá ser presentada 
+en los respectivos procesos de fiscalización. 
+ 
+c.8) Los sujetos obligados deberán conservar el registro de los casos analizados de potenciales 
+operaciones sospechosas por el plazo de cinco años, debiendo constar las fechas de apertura y 
+cierre del caso, los motivos que generaron su revisión, una descripción de la operativa 
+analizada, la conclusión alcanzada tras el análisis y las razones en que se funde el ROS enviado 
+a la UAF, o el descarte de la operación. 
+ 
+Reporte derivado de la coincidencia con las Listas de las Resoluciones del Consejo de Seguridad 
+de Naciones Unidas 
+ 
+c.9) Los sujetos obligados debe rán revisar de manera periódica y sistemática a todos sus 
+clientes, o po tenciales clientes, en las Listas de Resoluciones del Consejo de Seguridad de 
+Naciones Unidas que se indican a continuación sobre FT y FP, y deberán conservar respaldo de 
+dichas búsquedas o revisiones por un plazo mínimo de tres años. 
+ 
+c.10) Los sujetos obligados deberán revisar las Listas de los Comités de Sanciones contenidos 
+en las siguientes Resoluciones del Consejo de Seguridad de Naciones Unidas números 1.267, 
+de 1999; 1.333, de 2000; 1 .373, de 2001; 1 .390, de 2002; 1 .718, de 2006; 1 .737, de 2006; 
+1.747, de 2007; 1.803, de 2008 ; 1.929, de 2010; 1.988, de 2011; 1.989, de 2011; 2.253, de 
+2015; 2.356, de 2017, y 2 .371, de 2017, y sus subsecuentes resoluciones , y cualquiera otra 
+que las adicione o reemplace, y que estén contenidas en decretos supremos publicados en el 
+Diario Oficial de Chile . Estos lista dos se enc ontrarán disponibles en el banner “Listas de 
+Resoluciones ONU” del sitio www.uaf.cl. 
+ 
+c.11) En el evento de identificar a alguna persona natural o jurídica que esté mencionada en 
+cualquiera de las listas incluidas en el punto anterior, los sujetos obligados deberán informar 
+de inmediato dicho hallazgo a la U AF, a través de un ROS, sin requerir un análisis de las
+
+Página 5 de 15 
+ 
+transacciones y conductas de la persona o entidad identificada . Esto, a efecto de que la UAF 
+pueda iniciar el proceso de solicitud de la medida de congelamiento de activos establecida en 
+el artículo 38 de la Ley N°19.913. 
+ 
+ 
+D. DE LA OBLIGACIÓN DE REPORTAR OPERACIONES EN EFECTIVO (ROE) 
+ 
+d.1) Los sujetos obligados deberán informar a la UAF en forma mensual, trimestral o semestral, 
+dependiendo del sector económico al que pertenezcan, todas las operaciones en efectivo que 
+superen los USD 10.000, o su equivalente en pesos chilenos, según el valor del dólar observado 
+el día en que se realizó la operación, a través de un Reporte de Oper aciones en Efectivo (ROE), 
+por los medios e instrucciones que defina la UAF. 
+ 
+d.2) Son operaciones en efectivo aquellas que se materialicen en papel moneda o dinero 
+metálico. Los sujetos obligados solo deber án informar aquellas operaciones que realmente se 
+hayan materializado en efectivo, siendo responsabilidad directa del propio sujeto obligado 
+hacer la respectiva distinción, de acuerdo con la información tenida a la vista y disponible del 
+acto, operación o transacción. Los depósitos en efectivo que se realicen en las cuentas bancarias 
+de los sujetos obligados también deberán ser considerados en los reportes. 
+ 
+d.3) Los sujetos obligados que no registren, en el periodo correspondiente, operaciones en 
+efectivo superiores a USD 10.000, o su equivalente en pesos chilenos, según el valor del dólar 
+observado el día en que se realizó la operación, deberán enviar un reporte negativo. 
+ 
+d.4) En el Anexo N°1 de esta Circular se indica la periodicidad que cada categoría de sujeto 
+obligado deberá cumplir para el envío del ROE a la UAF. 
+ 
+d.5) Es deber de cada sujeto obligado verificar que el envío del ROE haya sido correctamente 
+recepcionado por la UAF, así como también llevar a cabo las correcciones necesarias para su 
+total cumplimiento. En caso de que el envío contenga errores u omisiones , el ROE será 
+rechazado por el sistema, quedando la obligación como no cumplida. 
+ 
+d.6) Para rectificar un ROE, el oficial de cumplimiento deberá ingresar el requerimiento 
+respectivo a través del sitio www.uaf.cl, en un plazo de 10 días hábiles, contados desde el 
+vencimiento del plazo de la obligación de informar el ROE, siguiendo las indicaciones que defina 
+la UAF. 
+ 
+d.7) Para el caso en que se requiera reemplazar un archivo ROE por uno negativo, o viceversa, 
+se deberán adjuntar los antecedentes de respaldo de las transacciones involucradas, y se deberá 
+seguir el procedimiento que defina la UAF. 
+ 
+ 
+E. DE LA OBLIGACIÓN DE CREAR Y MANTENER REGISTROS 
+ 
+e.1) Los sujetos obligados deberán crear y mantener los siguientes registros permanentes, sea 
+en formato físico o electrónico:
+
+Página 6 de 15 
+ 
+• Registro de Operaciones en Efectivo : Deberá contener todos los archivos y documentos 
+de respaldo de las operaci ones contenidas en los reportes enviados y aprobados por la 
+UAF. 
+ 
+• Registro de Operaciones Sospechosas : Deberá contener los expedientes, carpetas y 
+documentos de respaldo del análisis de las operaciones sospechosas enviadas a la UAF, 
+así como las descartadas. 
+ 
+• Registro de Debida Diligencia y Conocimiento del Cliente (DDC) : Deberá contener las 
+fichas de clientes, los antecedentes y documentos de respaldo. 
+ 
+• Registro de Operaciones Realizadas por Personas Expuestas Políticamente (PEP) : Deberá 
+contener: a) la lista de clientes PEP, b) las operaciones realizadas por los clientes PEP y los 
+documentos de respaldo de dichas operaciones , y c) los antecedentes recabados por 
+aplicación de lo dispuesto en el literal h.4) de esta Circular. 
+ 
+• Registro de Transferencias Electrónicas de Fondos y Activos: Deberá ser llevado por l os 
+sujetos obligados dedicados a prestar este servicio, incluyendo toda la información que 
+se requiere en el Capítulo I “De las Transferencias Electrónicas de Fondos y Activos” de la 
+presente Circular. 
+ 
+e.2) Toda la información contenida en los registros señalados precedentemente deberá ser 
+conservada y mantenida por los sujetos obligados por un plazo mínimo de cinco años, desde 
+terminada la relación comercial o la última operación ocasional, y deberá estar a disposición de 
+la UAF cuando esta la requiera. En caso de que el sujeto obligado mantenga estos registros por 
+más de cinco años, est ará igualmente obligado a entregar la información solicitada . Los 
+registros deberán estar siempre a disposición de las autoridades competentes. 
+ 
+ 
+F. DE DEBIDA DILIGENCIA Y CONOCIMIENTO DEL CLIENTE (DDC) 
+ 
+f.1) La Debida Diligencia del Cliente (DDC) es el proceso de identificación y conocimiento del 
+cliente, con la finalidad de entender el propósito y carácter de la relación comercial o 
+contractual, o de la transacción ocasional, usando dicho conocimiento para la prevención del 
+lavado de activos y d el financiamiento del terrorismo y el de la proliferación de armas de 
+destrucción masiva. Se trata de un proceso continuo de análisis de la conducta de los clientes. 
+ 
+f.2) La información obtenida en la DDC deberá incorporarse en una ficha de cliente, la que 
+deberá ser actualizada al menos anualmente o cuando existan cambios relevantes. Los 
+antecedentes y documentos de respaldo obtenidos en el proceso de la DDC deberán mantenerse 
+en el registro respectivo referido en el punto e.1). 
+ 
+f.3) Todos los sujetos obligados debe rán solicitar a sus clientes la siguiente información y 
+documentación de respaldo: 
+ 
+1. Nombre o razón social y nombre de fantasía, cuando cuente con uno.
+
+Página 7 de 15 
+ 
+2. Documento de identidad o pasaporte cuando se trate de personas naturales. En el 
+caso de personas jurídicas se deberá solicitar el RUT , o similar si es extranjera, y 
+prueba de su constitución, vigencia y forma jurídica. Además, se deberá identificar 
+a los beneficiarios finales de acuerdo con lo dispuesto en el Capítulo G. 
+3. Nacionalidad, profesión, ocupación u oficio en el caso de personas naturales, y giro 
+comercial para las personas jurídicas. 
+4. País de residencia y domicilio tributario. 
+5. Domicilio en Chile o en el país de origen, o residencia permanente. 
+6. Correo electrónico o teléfono de contacto. 
+7. Propósito y carácter de la relación comercial o contractual, o de la transacción 
+ocasional. 
+ 
+f.4) La información antes señalada se deberá solicitar en los siguientes casos: 
+ 
+1. Antes o durante el establecimiento de una relación comercial o contractual de 
+carácter permanente con el cliente. 
+2. Cuando se realice una o más transacciones ocasionales con un cliente con quien no 
+se tenga una relación comercial o contractual de carácter permanente, y esta sea 
+por un monto igual o superior a los USD 3.000, considerando que la transacción se 
+lleve a cabo en una única operación o en varias operaciones que pare zcan estar 
+vinculadas. Los sujetos obligados que se indican en el Anexo N°2 deberán aplicar 
+los umbrales ahí definidos. 
+3. Cuando existan sospechas de LA/FT, con independencia de las exenciones y 
+umbrales definidos. 
+ 
+f.5) Los sujetos obligados deberán tomar medidas razonables o adecuadas para verificar la 
+información y documentación entregada por el cliente, pudiendo siempre solicitar al mismo 
+información y documentación adicional, o recurrir a otras fuentes legales de info rmación para 
+verificar, dentro de sus posibilidades organizacionales y legales, la veracidad y autenticidad de 
+la información y documentación entregada por el cliente. 
+ 
+f.6) En el evento que el cliente se niegue a entregar todo o parte de la información y 
+documentación antes indicada, o si se detectare que la información proporcionada es falsa, 
+tales circunstancias deberán ser consideradas como señales de alerta con el fin de evaluar el 
+envío de un ROS a la UAF. 
+ 
+f.7) Los sujetos obligados debe rán desarrollar un análisis continuo del comportamiento de 
+sus clientes, sus actos, operaciones y transacciones a lo largo de la relación, en aras de asegurar 
+que se correspondan con el propósito declarado por el cliente, su giro comercial y perfil de 
+riesgos de LA/FT/FP . En el caso de que no se correspondan , deberán ser consideradas 
+operaciones inusuales y someterse a lo previsto en el literal c.7). 
+ 
+f.8) Los sujetos obligados podrán aplicar medidas simplificadas o deberán aplicar medidas 
+reforzadas de DDC a sus productos y servicios, de acuerdo con sus políticas de riesgos de 
+LA/FT/FP. Estas políticas de riesgo s deberán tener como base las Evaluaciones Nacionales de 
+Riesgos de LA, FT y FP de la UAF, así como los Enfoques Sectoriales , en la medida que sean
+
+Página 8 de 15 
+ 
+dictados por este Servicio , y deberán constar en el Manual de Prevención y Detección del 
+LA/FT/FP y estar debidamente fundamentadas y documentadas. 
+ 
+ 
+f.9) Las medidas reforzadas deberán aplicarse a los clientes que operen con países o zonas 
+geográficas, productos, servicios, actos, operaciones , transacciones y canales de distribución, 
+que hayan sido calificados de alto riesgo. Asimismo, se deberán aplicar cuando exista sospecha 
+de un cliente. 
+ 
+ 
+f.10) Son medidas reforzadas de DDC, las siguientes: 
+ 
+1. Obtención de información adicional sobre el propósito y carácter que se pretende 
+dar a la relación comercial o contractual. 
+2. Obtención de información sobre el origen de los fondos del cliente. 
+3. Obtención de información sobre el origen del patrimonio del cliente. 
+4. Obtención de la aprobación de la alta gerencia para comenzar o continuar la relación 
+comercial o contractual. 
+5. Intensificar la DDC continua del cliente. 
+6. Obtención de información adicional del cliente y actualización con mayor frecuencia 
+de la información y documentos de identificación del cliente y beneficiario final. Esta 
+mayor frecuencia puede estar determinada para cada nuevo acto, operación o 
+transacción efectuada sobre un umbral monetario establecido. 
+ 
+f.11) Las medidas simplificadas pueden ser aplicadas a los clientes que operen con productos, 
+servicios, actos, operaciones, transacciones y canales de distribución, que hayan sido calificados 
+de bajo riesgo. 
+ 
+ 
+f.12) Son medidas simplificadas de DDC, las siguientes: 
+ 
+1. Completar los datos de DDC mediante la utilización de terceras fuentes de 
+información. 
+2. Postergar la obligación de verificar la información de identificación del cliente al 
+momento en que se realice un acto, operación o transacción por sobre un umbral 
+monetario determinado. 
+3. Postergar la obligación de solicitar y verificar la información de identificación del 
+beneficiario final, al momento en que se realice un acto, operación o transacción 
+por sobre el umbral determinado en la Política de Riesgo. 
+4. Reducir la frecuencia de la actualización de los datos de identificación del cliente. 
+5. Actualizar los datos de DDC en función de información obtenida de terceras 
+fuentes. 
+6. Reducir la intensidad de la DDC continua del cliente. Esta menor intensidad puede 
+estar determinada por un umbral monetario establecido. 
+7. Exención de la solicitud de antecedentes sobre el propósito y carácter de la 
+relación comercial o contractual, o de la transacción ocasional.
+
+Página 9 de 15 
+ 
+G. DEL BENEFICIARIO FINAL 
+ 
+ 
+g.1) Todos l os sujetos obligados deberán implementar las obligaciones relativas a la 
+identificación de los beneficiarios finales contenidas en este capítulo. 
+ 
+ 
+g.2) Definiciones. Para los efectos de la aplicación de este capítulo se entenderá por: 
+ 
+Beneficiario final, a la persona natural que finalmente posee, directa o indirectamente, 
+a través de sociedades u otros mecanismos, una participación igual o mayor al 10% del 
+capital o de los derechos a voto de una persona jurídica o estructura jurídica 
+determinada; y a la persona natural que, sin perjuicio de poseer directa o 
+indirectamente una participación inferior al 10% del capital o de los derechos a voto de 
+una persona jurídica o estructura jurídica, a través de sociedades u otros mecanismos, 
+ejerce el control ef ectivo en la toma de decisiones de la persona jurídica o estructura 
+jurídica. 
+ 
+Participación, la circunstancia de determinadas personas naturales o jurídicas de 
+acuerdo con las respectivas disposiciones legales vigentes, de ser propietarios de un 
+porcentaje del capital o de los derechos a voto de una persona jurídica o estructura 
+jurídica determinada. 
+ 
+Control efectivo, la capacidad de una persona natural de tomar decisiones relevantes 
+e imponer dichas resoluciones en la persona jurídica o estructura jurídica, ya sea por 
+poseer un número relevante de acciones, contar con la participación necesaria para 
+designar y remove r a la alta gerencia y directorio, y por disponer del uso, disfrute o 
+beneficios de los activos propiedad de la persona jurídica o estructura jurídica, entre 
+otras circunstancias. Este listado es a modo de ejemplo, y en ningún caso podrá 
+entenderse como una enunciación taxativa. 
+ 
+Estructura jurídica, cualquier forma de organización jurídica que no corresponda a una 
+persona jurídica con fines de lucro contemplada y regulada expresamente en el 
+ordenamiento jurídico chileno vigente; por ejemplo, los fideicomisos, treuhand, trusts 
+y fiducie constituidos en el extranjero, entre otros. 
+ 
+g.3) Los sujetos obligados deberán cumplir las siguientes obligaciones: 
+ 
+g.3.1) Identificación del beneficiario final: Los sujetos obligados deberán solicitar a sus 
+clientes personas jurídicas o estructura jurídicas una declaración que contenga los 
+datos de identificación suficientes respecto de la identidad de sus beneficiarios finales. 
+Para este fin, los sujetos obligados deberán utilizar el formulario base dispuesto en el 
+sitio www.uaf.cl, el cual podrá ser complementado con nuevos campos por los sujetos 
+obligados, de acuerdo con las características y complejidad de los negocios que 
+realicen. Este formulario deberá ser completado de buena fe por el cliente, ya sea de
+
+Página 10 de 15 
+ 
+manera presencial o electrónica, según la disponibilidad tecnológica con que cuente el 
+sujeto obligado. 
+ 
+g.3.2) Oportunidad: La obligación de solicitar la información sobre beneficiarios finales 
+del cliente persona jurídica o estructura jurídica, a través de la solicitud de la 
+declaración respectiva , deberá realizarse en las circunstancias descritas en el literal 
+f.4). 
+ 
+g.3.3) Formalización del procedimiento: El procedimiento de solicitud de declaración y 
+antecedentes para la identificación del beneficiario final deberá ser incorporado en el 
+Manual de Prevención y Detección de cada sujeto obligado. 
+ 
+g.3.4) Revisión: El sujeto obligado deberá tomar medidas razonables para verificar la 
+información declarada por el cliente persona jurídica o estructura jurídica referente a 
+sus beneficiarios finales, pudiendo siempre solicitar al mismo cliente documentación 
+adicional, o recurrir a otras fuentes legales de información para verificar, dentro de sus 
+posibilidades organizacionales y legales, la veracidad de lo declarado por el cliente. 
+ 
+g.3.5) Registro: Los sujetos obligados deberán incorporar en la ficha de cliente la 
+información de las personas jurídicas o estructuras jurídicas en que consten los datos 
+por ellos aportados en relación con la identidad de los beneficiarios finales. Esta 
+información deberá estar siempre a disposición de las autoridades competentes. 
+ 
+g.3.6) Personas Expuestas Políticamente (PEP) : En caso de que el cliente persona 
+jurídica o estructura jurídica declare como beneficiario final a una PEP, o bien así se 
+determine por el sujeto obligado en el proceso de revisión y verificación de la 
+información, se deberá n igualmente implementar y ejecutar respecto del cliente 
+persona jurídica o estructura jurídica todas las medidas de DDC previstas para las PEP. 
+ 
+g.3.7) Personas jurídicas y estructuras jurídicas extranjeras: En el caso de clientes 
+personas jurídicas o estructuras jurídicas extranjeras, el sujeto obligado deberá 
+requerir la identidad y domicilio de la persona natural relevante que ocupe el cargo o 
+posición de mayor rango gerencial en el extranjero y de sus rep resentantes legales 
+domiciliados en Chile, debiendo estos entregar toda la información sobre beneficiarios 
+finales de dichas personas jurídicas o estructuras jurídicas extranjeras. 
+ 
+g.3.8) Insuficiencia o falta de información: En caso de dilación injustificada o negativa 
+del cliente persona jurídica o estructura jurídica en proporcionar la información o 
+documentación requerida para identificar a sus beneficiarios finales, los sujetos 
+obligados deberán considerar dicha conducta c omo señal de alerta para evaluar el 
+envío de un ROS a la UAF. Se entenderá que hay dilación injustificada transcurridos 40 
+días hábiles desde que ha sido requerido el formulario. Sin perjuicio de lo anterior, y 
+como parte de las medidas de administración y mitigación de riesgos de los sistemas 
+de prevención de l LA/FT/FP de los sujetos obligados, estos podrán considerar 
+abstenerse de establecer o mantener la relación de negocios , o de ejecutar una o más 
+operaciones en los casos del inciso anterior, siempre que sus respectivas regulaciones 
+legales así lo permitan.
+
+Página 11 de 15 
+ 
+ 
+H. DE LAS PERSONAS EXPUESTAS POLÍTICAMENTE (PEP) 
+ 
+h.1) Son calificadas como PEP, los chilenos y extranjeros que desempeñ en o hayan 
+desempeñado funciones públicas destacadas en un país, hasta a lo menos un año de finalizado 
+el ejercicio de estas. La presente regulación dispone los mínimos a considerar por los sujetos 
+obligados, los que, en consideración a su Política de R iesgos, podrán calificar dentro de esta 
+categoría a otras personas, como también extender los plazos mínimos que hayan sido fijados. 
+ 
+h.2) Se incluyen en la categoría PEP a jefes(as) de Estado o de un Gobierno, políticos de alta 
+jerarquía, funcionarios (as) gubernamentales, judiciales o militares de alta jerarquía, altos (as) 
+ejecutivos(as) de empresas estatales, así como a su cónyuge, conviviente civil y parientes hasta 
+el segundo grado de consanguinidad (abuelos, nietos y hermanos), y las personas naturales con 
+las que hayan celebrado un pacto de actuación conjunta, mediante el cual tengan poder de voto 
+suficiente para influir en sociedades constituidas en Chile. 
+ 
+h.3) Los sujetos obligados deberán calificar como PEP, a lo menos, a las siguientes personas: 
+ 
+• Presidente(a) de la República. 
+• Senadores(as), diputados(as), alcaldes(as), concejales (as), administradores (as) y 
+directores(as) de obras municipales. 
+• Ministros(as) de la Corte Suprema, ministros(as) de Cortes de Apelaciones y jueces/juezas 
+de primera instancia. 
+• Ministros(as) de Estado, subsecretarios(as), gobernadores(as), delegados(as) 
+presidenciales, consejeros(as) regionales, secretarios(as) y asesores (as) regionales 
+ministeriales, embajadores(as), cónsules, jefes(as) superiores de servicio, tanto 
+centralizados como descentralizados , y la o el directivo superior inmediato que deba 
+subrogar a cada uno de ellos. 
+• Comandantes en jefe de las Fuerzas Armadas, director(a) General de Carabineros, 
+director(a) General de Investigaciones, y todo el alto mando respectivo. 
+• Fiscal nacional del Ministerio Público, fiscales regionales y fiscales adjuntos. 
+• Fiscal nacional económico. 
+• Contralor(a) General de la República y contralores(as) Regionales. 
+• Consejeros(as) del Banco Central de Chile. 
+• Consejeros(as) del Consejo de Defensa del Estado. 
+• Ministros(as) del Tribunal Constitucional. 
+• Ministros(as) del Tribunal de la Libre Competencia. 
+• Integrantes titulares y suplentes del Tribunal de Contratación Pública. 
+• Consejeros(as) del Consejo de Alta Dirección Pública. 
+• Directores(as) y ejecutivos(as) principales de empresas públicas, según lo definido por la 
+Ley Nº18.045. 
+• Directores(as) de sociedades anónimas nombrados por el Estado o sus organismos. 
+• Miembros de las directivas de los partidos políticos. 
+ 
+h.4) Los sujetos obligados debe rán implementar medidas para determinar si un posible 
+cliente, un cliente o el beneficiario final , es o no PEP. Además, deberán ejecutar, respecto de 
+estas personas, medidas reforzadas de DDC, entre las que se encuentran:
+
+Página 12 de 15 
+ 
+1. Obtener y exigir aprobación de la alta gerencia para establecer relaciones comerciales 
+con una PEP, o que ha pasado a tener esta calidad cuando la relación comercial es previa 
+a dicha condición. 
+2. Tomar medidas razonables para definir la fuente del patrimonio, la fuente de los fondos 
+con los que opera n los clientes y beneficiarios finales identificados como PEP , y el 
+propósito de la operación. 
+3. Implementar procedimientos y medidas de DDC continua intensificada sobre la relación 
+comercial establecida con una PEP. 
+ 
+ 
+I. DE LAS TRANSFERENCIAS ELECTRÓNICAS DE FONDOS Y ACTIVOS 
+ 
+i.1) Todos los sujetos obligados que provean el servicio de transferencias electrónicas de 
+fondos y activos, sean transfronterizas o nacionales, incluyendo aquellas definidas en la Ley 
+N°21.521, deberán incorporar información precisa y significativa del ordenante y del 
+beneficiario, respecto de toda transacción de USD 1.000 o más, a los mensajes relacionados 
+enviados junto con lo transferido, debiendo verificar que esta sea exacta y conservarla por un 
+plazo mínimo de cinco años en el registro respectivo. 
+ 
+i.2) La información a incorporar a la transferencia y registrar es la siguiente: 
+ 
+1. Monto, moneda o activo y fecha de la transacción. 
+2. Nombre o razón social del ordenante. 
+3. Número de cuenta del ordenante, cuando dicha cuenta se use para procesar la 
+transacción. 
+4. Número de cédula nacional de identidad del ordenante, para chilenos y residentes, 
+o de pasaporte o similar documento de identificación para extranjeros no 
+residentes. En caso de personas jurídicas se deberá solicitar el RUT o similar , si es 
+extranjera. 
+5. Domicilio del ordenante. 
+6. Nombre o razón social del beneficiario. 
+7. Número de cuenta del beneficiario cuando dicha cuenta se use para procesar la 
+transacción. 
+ 
+i.3) Se encuentran exceptuadas de la presente obligación las siguientes operaciones: 
+ 
+1. Transferencias que deriven de una transacción realizada utilizando tarjeta de crédito , 
+débito o tarjetas de pago con provisión de fondos, siempre que el número de dicha 
+tarjeta acompañe todas las transferencias derivadas de la transacción. Sin embargo, si 
+las tarjetas se utilizan como medio de pago de una transferencia de dinero, la presente 
+instrucción será plenamente aplicable. 
+ 
+2. Transferencias y liquidaciones efectuadas entre instituciones financieras , cuando tanto 
+el ordenante como el beneficiario s ean las instituciones financieras que actú en en su 
+propio nombre.
+
+Página 13 de 15 
+ 
+i.4) Las instituciones remisoras deberán acompañar a la transferencia toda la información 
+recopilada. 
+ 
+i.5) Las instituciones receptoras de fondos o activos transferidos deberán adoptar todas las 
+medidas de resguardo , con el objetivo de aislar y gestionar las operaciones que no cumplan 
+con el envío de la información obligatoria por parte de la entidad remisora, debiendo 
+determinar, en función del riesgo asociado, liquidar, rechazar, anular o suspender la 
+transferencia de fondos o activos. 
+ 
+ 
+J. DEL MANUAL DE PREVENCIÓN Y DETECCIÓN 
+ 
+j.1) Todos los sujetos obligados deberán contar con un Manual de Prevención y Detección del 
+LA/FT/FP que contenga las políticas y procedimientos para prevenir tales actos ilícitos. 
+ 
+j.2) El Manual deberá ser actualizado a lo menos cada dos años, y ser entregado, en el formato 
+que cada sujeto obligado defina, a todos sus trabajadores y trabajadoras , debiendo existir 
+constancia de aquello. La periodicidad de actualización será sin perjuicio de la existencia de 
+cambios en la regulación legal o en las instrucciones impartidas por la UAF, ajustes que deberán 
+ser introducidos al Manual lo antes posible por los sujetos obligados, una vez que dichos 
+cambios entren en vigor. 
+ 
+j.3) El Manual de Prevención y Detección deberá haber sido aprobado por la más alta instancia 
+directiva del sujeto obligado, y contemplar los siguientes puntos: 
+ 
+1. Organización interna del sistema de prevención del LA/FT/FP. 
+2. Políticas y procedimientos de DDC, de identificación de los beneficiarios finales y de 
+las PEP. 
+3. Política de riesgos de LA/FT/FP del sujeto obligado, identificando las amenazas y 
+vulnerabilidades y el impacto de estas, para determinar su exposición a riesgos 
+altos, medios y bajos. 
+4. Política y p rocedimiento de prevención y detección de operaciones sospechosas y 
+de reporte oportuno y reservado a la UAF , de acuerdo con lo previsto en la Ley 
+N°19.913. 
+5. Procedimiento de revisión de las Listas de Sanciones de las Resoluciones del Consejo 
+de Seguridad de Naciones Unidas. 
+6. Procedimiento de revisión de las listas de países y jurisdicciones de riesgo, según 
+se especifica en el Capítulo K. 
+7. Procedimiento de reporte inmediato a la UAF, en el caso de detectar casos positivos 
+en la revisión señalada en el numeral 5 precedente. 
+ 
+ 
+K. DE LOS PAÍSES Y JURISDICCIONES DE RIESGO 
+ 
+k.1) Los sujetos obligados deberán aplicar medidas reforzadas de DDC a las transacciones 
+que eventualmente realicen con países o jurisdicciones que se encuentren bajo proceso de 
+seguimiento por parte d el Grupo de Acción Financiera Internacional (GAFI) , por deficiencias
+
+Página 14 de 15 
+ 
+estratégicas en sus sistemas contra el LA/FT/FP. Adicionalmente, deberán aplicar 
+contramedidas a las transacciones que eventualmente realicen con países o jurisdicciones 
+cuando el GAFI haga un llamado en ese sentido. 
+ 
+k.2) Los sujetos obligados deberán guardar especial observancia a las transacciones que 
+realicen con países o jurisdicciones que se encuentren en el listado publicado por el Servicio de 
+Impuestos Internos, sobre países y jurisdicciones que se considere que tienen un régimen fiscal 
+preferencial. 
+ 
+k.3) Las listas de países y jurisdicciones bajo seguimiento por deficiencias estratégicas del 
+GAFI, como aquellos con régimen fiscal preferente estarán disponibles en el sitio www.uaf.cl 
+ 
+k.4) La información obtenida derivada del proceso de revisión de l os datos y de las listas 
+deberá ser analizada , a objeto de determinar si procede informar de la operación a la UAF a 
+través de un ROS. 
+ 
+ 
+L. DE LA OBLIGACIÓN DE CAPACITAR AL PERSONAL 
+ 
+l.1) Los sujetos obligados deberán capacitar a todos sus colaboradores sobre cómo prevenir 
+y detectar el LA/FT/FP una vez al año. 
+ 
+l.2.) De las capacitaciones efectuadas se deberá dejar constancia de la modalidad y fecha 
+de realización, nombre y forma de participación de todos los asistentes en un registro, incluido 
+el oficial de cumplimiento , debiendo considerarse como contenidos mínimos el Manual de 
+Prevención y Detección de la entidad y la Guía de Señales de Alerta de la UAF. 
+ 
+ 
+SEGUNDO: Los sujetos obligados podrán utilizar medios electrónicos para la implementación y 
+cumplimiento de todas las obligaciones contenidas en la presente Circular. 
+ 
+ 
+TERCERO: Todas las instrucciones impartidas por la presente Circular serán objeto de 
+fiscalización por parte de la UAF, en conformidad con las directrices y lineamientos fijados en 
+la Política de Supervisión con un Enfoque Basado en Riesgos de LA/FT/FP de la UAF . El 
+incumplimiento de las obligaciones contenidas en la presente Circular podrá ser sancionado en 
+los términos previstos en el Título II “De las Infracciones y Sanciones” de la Ley N°19.913, y en 
+conformidad con la Política Sancionatoria de la UAF. 
+ 
+ 
+CUARTO: Se derogan las Circulares UAF N° 6, 7, 11, 12, 16, 17, 18, 19, 34, 35, 40, 42, 46, 47, 
+49, 52, 53, 54, 55, 56, 57, 58, 59 y 60. 
+ 
+QUINTO: La Unidad de Análisis Financiero deberá mantener publicad o en el sitio www.uaf.cl el 
+texto refundido y actualizado de la presente Circular, incorporando todas aquellas que en el 
+futuro la modifiquen.
+
+Página 15 de 15 
+ 
+SEXTO: La presente Circular entrará en vigor el 1 de junio de 2025. Las instrucciones impartidas 
+en el Capítulo I “De las Transferencias Electrónicas de Fondos y Activos” , entrarán en vigencia 
+el 1 de julio de 2025 para todos los sujetos obligados que provean servicios regulados en la 
+Ley N°21.521. 
+ 
+SÉPTIMO: A l os procedimientos administrativos sancionatorios fundados en fiscalizaciones 
+realizadas con anterioridad a la vigencia de la presente Circular, les resultará aplicable lo 
+dispuesto en las circulares que se encontraban vigentes al momento de la fiscalización. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CARLOS PAVEZ TOLOSA 
+Director 
+Unidad de Análisis Financiero

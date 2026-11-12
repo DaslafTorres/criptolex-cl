@@ -1,0 +1,52 @@
+[project]
+name = "criptolex-cl"
+version = "0.1.0"
+description = "RAG assistant over Chilean crypto and fintech regulation, with citation-level evaluation"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+license = { text = "MIT" }
+authors = [{ name = "Daslaf Torres" }]
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "pydantic>=2.9",
+    "pydantic-settings>=2.6",
+    "httpx>=0.27",
+    "trafilatura>=1.12",
+    "pypdf>=5.1",
+    "cryptography>=43.0",
+    "fonttools>=4.50",
+    "beautifulsoup4>=4.12",
+    "chromadb>=0.5",
+    "rank-bm25>=0.2.2",
+    "flashrank>=0.2.10",
+    "groq>=0.13",
+]
+
+[project.scripts]
+criptolex-ingest = "criptolex.ingest:main"
+criptolex-chunk = "criptolex.chunk:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.8",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/criptolex"]
