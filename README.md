@@ -10,6 +10,8 @@ Ask a question in Spanish, get an answer grounded in official sources — with t
 
 🚧 In development — milestone M1 (ingestion) complete.
 
+**Corpus:** 7 official documents → **543 citable chunks** (article-level for laws).
+
 | Milestone | Scope | Status |
 |---|---|---|
 | M0 | Scaffold, tooling, CI | ✅ |
