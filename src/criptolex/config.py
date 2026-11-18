@@ -16,6 +16,7 @@ class Settings(BaseSettings):
 
     top_k: int = 5
     rerank: bool = True
+    rerank_model: str = "ms-marco-TinyBERT-L-2-v2"
 
     data_dir: Path = ROOT / "data"
     raw_dir: Path = ROOT / "data" / "raw"

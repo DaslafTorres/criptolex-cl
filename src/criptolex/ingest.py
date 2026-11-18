@@ -107,9 +107,7 @@ def extract_bcn_json(path: Path) -> str:
     return text
 
 
-def crawl_sii_faq(
-    source: Source, index_path: Path, client: httpx.Client
-) -> str:
+def crawl_sii_faq(source: Source, index_path: Path, client: httpx.Client) -> str:
     """The SII FAQ index links to one page per question; fetch them all."""
     index = BeautifulSoup(index_path.read_bytes(), "html.parser")
     anchors = index.select("div#listado-preguntas-por-tema a[href$='.htm']")

@@ -20,6 +20,7 @@ data/raw/*.json
 data/raw/*.source.txt
 data/processed/*.jsonl
 data/chroma/
+data/reranker/
 
 # Build
 dist/

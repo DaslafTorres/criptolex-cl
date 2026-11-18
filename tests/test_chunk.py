@@ -96,9 +96,7 @@ def test_chunk_source_uses_article_metadata() -> None:
 
 def test_long_article_is_split_and_respects_max_size() -> None:
     body = ("Contenido normativo extenso sin cortes de oración " * 150).strip()
-    text = "\n\n".join(
-        f"Artículo {i}.- {body}" for i in range(1, 4)
-    )
+    text = "\n\n".join(f"Artículo {i}.- {body}" for i in range(1, 4))
     chunks = chunk_source(LEGAL, text)
     assert len(chunks) > 3
     assert all(len(chunk.text) <= 2200 for chunk in chunks)

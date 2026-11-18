@@ -31,8 +31,7 @@ TRANSITORIOS_RE = re.compile(
     r"(?im)^[ \t]*(?:disposiciones|art[ií]culos|normas)[ \t]+transitori[oa]s?\.?[ \t]*$"
 )
 TRANSITORIO_HEAD_RE = re.compile(
-    r"(?im)^[ \t]*art[ií]culo[ \t]+(?:(?P<num>\d+)[ \t]*[°º]?|(?P<word>[a-záéíóúñ]+))"
-    + _SEPARATOR
+    r"(?im)^[ \t]*art[ií]culo[ \t]+(?:(?P<num>\d+)[ \t]*[°º]?|(?P<word>[a-záéíóúñ]+))" + _SEPARATOR
 )
 LAW_HEADING_RE = re.compile(
     r"(?im)^[ \t]*(?:ley|decreto|resoluci[oó]n)\s+(?:n[uú]m|[nN][°º]|exenta|suprema|\d)"
@@ -199,9 +198,7 @@ def _is_page_number(text: str) -> bool:
 def _drop_boilerplate(paragraphs: list[str], max_chars: int = 240) -> list[str]:
     """Remove short paragraphs repeated on every page (running headers/footers)."""
     counts = Counter(p for p in paragraphs if len(p) <= max_chars)
-    return [
-        p for p in paragraphs if not (len(p) <= max_chars and counts[p] >= 3)
-    ]
+    return [p for p in paragraphs if not (len(p) <= max_chars and counts[p] >= 3)]
 
 
 def _looks_like_heading(text: str) -> bool:
@@ -239,9 +236,7 @@ def _merge_headings(paragraphs: list[str]) -> list[str]:
 def sliding_windows(text: str, size: int = FALLBACK_CHARS) -> list[tuple[str, str]]:
     """Split non-legal text into paragraph windows without cutting sentences."""
     paragraphs = [
-        p.strip()
-        for p in re.split(r"\n\s*\n", text)
-        if p.strip() and not _is_page_number(p)
+        p.strip() for p in re.split(r"\n\s*\n", text) if p.strip() and not _is_page_number(p)
     ]
     paragraphs = _drop_boilerplate(paragraphs)
     paragraphs = _merge_headings(paragraphs)
@@ -342,9 +337,7 @@ def _split_block(text: str, max_chars: int) -> list[str]:
     return pieces
 
 
-def split_long(
-    article: str, body: str, max_chars: int = MAX_CHUNK_CHARS
-) -> list[tuple[str, str]]:
+def split_long(article: str, body: str, max_chars: int = MAX_CHUNK_CHARS) -> list[tuple[str, str]]:
     """Split an oversized article on paragraphs, then lines, then sentences."""
     if len(body) <= max_chars:
         return [(article, body)]
