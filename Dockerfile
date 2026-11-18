@@ -19,7 +19,8 @@ RUN apt-get update \
 COPY --from=ghcr.io/astral-sh/uv:0.9.7 /uv /bin/uv
 
 # Dependencies first so code changes do not invalidate the install layer.
-COPY pyproject.toml uv.lock ./
+# README.md is required here: pyproject.toml declares it as the project readme.
+COPY pyproject.toml uv.lock README.md ./
 RUN uv sync --frozen --no-dev
 
 COPY src ./src
