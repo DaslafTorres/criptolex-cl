@@ -8,9 +8,9 @@ Ask a question in Spanish, get an answer grounded in official sources — with t
 
 ## Status
 
-🚧 In development — M1 (ingestion), M2 (retrieval) and M3 (API + UI) complete.
+🚧 In development — ingestion, retrieval, API and the evaluation harness are done; deployment is next.
 
-**Corpus:** 7 official documents (831,549 chars) → **628 citable chunks** (article-level for laws).
+**Corpus:** 7 official documents (831,549 chars) → **630 citable chunks** (article-level for laws).
 
 | Milestone | Scope | Status |
 |---|---|---|
@@ -18,7 +18,7 @@ Ask a question in Spanish, get an answer grounded in official sources — with t
 | M1 | Ingestion + article-aware chunking | ✅ |
 | M2 | Hybrid retrieval (BM25 + vectors) + reranking | ✅ |
 | M3 | API `/ask` + chat UI with source cards | ✅ |
-| M4 | Evaluation harness + deploy | ⏳ |
+| M4 | Evaluation harness + deploy | 🚧 harness done, deploy pending |
 
 ## Sources
 
@@ -111,6 +111,29 @@ source card, which links to the official PDF or page.
 No build step, no frontend framework — the whole client is one HTML file, one
 stylesheet and ~180 lines of JavaScript.
 
+## Deploy
+
+The image is self-contained: corpus, vector index, embedding model and reranker
+are baked in at build time, so a cold container answers the first question
+without downloading anything.
+
+```bash
+docker build -t criptolex-cl .
+docker run --rm -p 7860:7860 -e GROQ_API_KEY=gsk_... criptolex-cl
+# no key: -e LLM_PROVIDER=extractive
+```
+
+- `PORT` is respected (default `7860`, the Hugging Face Spaces convention).
+- The Groq key is read at runtime and is never baked into the image.
+- Intended free target: a Hugging Face **Docker** Space — push this repository to
+  the Space, add `GROQ_API_KEY` as a secret, and declare `sdk: docker` plus the
+  port in its `README.md` metadata. Render works too, but its free 512 MB
+  instance is tight for Chroma plus the reranker.
+
+The Dockerfile has not been built in the development environment yet (no local
+Docker), so no live URL is linked here; the first deploy will be verified end to
+end before it is advertised.
+
 ## Architecture
 
 ```
@@ -150,6 +173,12 @@ Three details make this harder than a regex, and each one is handled and tested:
 3. **PDF extraction noise** — page numbers, running page headers and the
    Constitutional Court certification — is dropped, and no chunk exceeds 2,200
    characters.
+
+Non-legal sources use paragraph windows, except Q&A pages (the SII FAQ): there a
+window split left each "Pregunta:" dangling at the end of the *previous* chunk,
+detached from its answer. Splitting on question boundaries instead fixed the
+"mayor valor" query from rank ≥ 6 to rank 1, because the question line is the
+strongest lexical signal in a FAQ.
 
 Result: 46 articles + 9 transitory provisions for Ley 21.521, and 41 articles +
 2 `bis` + 7 transitory provisions for Ley 19.913, with zero duplicate chunks.
@@ -194,6 +223,57 @@ MRR is modest because the first result is sometimes a section heading that
 matches the wording but not the answer. That is what M4 measures properly with
 citation-level evaluation over generated answers.
 
+## Evaluation
+
+Two sets live in `eval/`:
+
+- `probe_retrieval.py` — 11 questions used to make the retrieval decisions above.
+  Small and fast, meant to catch regressions.
+- `golden.jsonl` — 25 questions for the milestone: 20 answerable covering all
+  seven sources, plus 5 out-of-scope questions for refusal testing.
+
+The method matters more than the number:
+
+- Questions were written **from the source text**, not from retrieval output, so
+  the set does not inherit the retriever's blind spots.
+- Every expected fact must appear verbatim (accent-insensitive) in the gold
+  chunk. `run_eval.py` validates this before scoring and refuses to run if the
+  corpus and the golden set have drifted apart.
+- Retrieval is scored at **chunk level**, not "looks relevant".
+- The out-of-scope questions are plausible — VAT on streaming, US SEC rules,
+  municipal permits — so refusing them is not trivially easy.
+
+```bash
+uv run python eval/run_eval.py                 # retrieval only, no API key
+uv run python eval/run_eval.py --generate      # + citations, facts, refusals
+```
+
+**Results** (20 answerable, 5 out of scope; reproducible on CPU):
+
+| Metric | Value |
+|---|---|
+| retrieval hit@5 | **0.90** (18/20) |
+| retrieval MRR@5 | 0.63 |
+| latency p50 / p95 | 377 ms / 393 ms |
+| citation precision / recall | pending LLM key |
+| fact recall, refusal accuracy, cost | pending LLM key |
+
+The two retrieval misses are honest ranking errors, not missing evidence:
+
+1. *"¿Qué entidades están obligadas a informar operaciones sospechosas?"* — the
+   list of obliged entities (Ley 19.913, artículo 3) never enters the top 5;
+   Circular 62's procedural section on *reporting* outranks it, because the
+   question's wording matches the procedure more strongly than the list.
+2. *"¿Quiénes deben presentar la declaración jurada 1964?"* — the gold chunk lands
+   at rank 7, behind an SII FAQ answer about the same obligation.
+
+Both golds sit inside the top 8, so the next things to test are a metadata boost
+when a question names a specific form, and query expansion for list questions.
+
+Generation metrics need a Groq key. Without one, `LLM_PROVIDER=extractive` keeps
+the demo honest: it quotes a retrieved passage and never pretends to reason.
+Raw per-question output is in [`eval/results.json`](eval/results.json).
+
 ## Roadmap
 
 - [x] Official source registry
@@ -202,9 +282,10 @@ citation-level evaluation over generated answers.
 - [x] Hybrid retrieval + reranking (hit@5 1.00 on the probe set)
 - [x] Citation-enforcing generation
 - [x] API `/ask` + chat UI
-- [ ] Golden evaluation set (25 questions)
+- [x] Golden evaluation set (25 questions) with fact validation
+- [x] Retrieval metrics: hit@5 0.90, MRR@5 0.63
+- [ ] Generation metrics with a Groq key (citation precision/recall, facts, refusals, cost)
 - [ ] Embedding and chunk-size benchmark (English vs multilingual MiniLM)
-- [ ] Metrics: citation accuracy, faithfulness, refusal rate, latency, cost
 - [ ] Deploy and demo GIF
 
 ## License

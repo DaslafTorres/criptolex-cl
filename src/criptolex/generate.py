@@ -39,6 +39,7 @@ Reglas:
 @dataclass(frozen=True)
 class Source:
     n: int
+    chunk_id: str
     source_key: str
     title: str
     issuer: str
@@ -51,6 +52,7 @@ class Source:
     def from_hit(cls, n: int, hit: Retrieved) -> Source:
         return cls(
             n=n,
+            chunk_id=hit.chunk_id,
             source_key=hit.source_key,
             title=hit.doc_title or hit.source_key,
             issuer=hit.issuer,
@@ -82,6 +84,8 @@ class GroqClient:
     def __init__(self, api_key: str, model: str, timeout: float = 30.0) -> None:
         self.model = model
         self._client = Groq(api_key=api_key, timeout=timeout)
+        self.prompt_tokens = 0
+        self.completion_tokens = 0
 
     def complete(self, system: str, user: str) -> str:
         response = self._client.chat.completions.create(
@@ -93,6 +97,10 @@ class GroqClient:
                 {"role": "user", "content": user},
             ],
         )
+        usage = response.usage
+        if usage is not None:
+            self.prompt_tokens += usage.prompt_tokens
+            self.completion_tokens += usage.completion_tokens
         return (response.choices[0].message.content or "").strip()
 
 
