@@ -125,14 +125,17 @@ docker run --rm -p 7860:7860 -e GROQ_API_KEY=gsk_... criptolex-cl
 
 - `PORT` is respected (default `7860`, the Hugging Face Spaces convention).
 - The Groq key is read at runtime and is never baked into the image.
-- Intended free target: a Hugging Face **Docker** Space — push this repository to
-  the Space, add `GROQ_API_KEY` as a secret, and declare `sdk: docker` plus the
-  port in its `README.md` metadata. Render works too, but its free 512 MB
-  instance is tight for Chroma plus the reranker.
+- Official sites are occasionally slow, so ingestion retries transient failures
+  instead of failing the build on one hiccup.
 
-The Dockerfile has not been built in the development environment yet (no local
-Docker), so no live URL is linked here; the first deploy will be verified end to
-end before it is advertised.
+On every push to `main`, GitHub Actions builds the image and pushes it to
+`ghcr.io/daslaftorres/criptolex-cl:latest`, which also proves the Dockerfile
+still builds. The public demo is a Hugging Face **Docker** Space that only pulls
+that image — the Space itself is two files, in
+[`deploy/huggingface/`](deploy/huggingface/), with the setup steps.
+
+Nothing in this section has been deployed yet: the image build has to pass once
+and the Space needs its `GROQ_API_KEY` secret before a URL can be linked here.
 
 ## Architecture
 

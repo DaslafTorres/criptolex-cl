@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import time
 from pathlib import Path
 from urllib.parse import urljoin
 
@@ -22,6 +23,37 @@ from .config import get_settings
 from .sources import BY_KEY, SOURCES, Source
 
 USER_AGENT = "criptolex-cl/0.1 (+https://github.com/DaslafTorres/criptolex-cl)"
+RETRIES = 3
+RETRY_DELAY_SECONDS = 2.0
+
+
+def _get(client: httpx.Client, url: str) -> httpx.Response:
+    """GET with retries for timeouts, connection errors, 429 and 5xx.
+
+    Official sites are occasionally slow or briefly unavailable, and a Docker
+    build that downloads the corpus should not fail on a single hiccup. Client
+    errors (404 and friends) are raised immediately: retrying them achieves
+    nothing.
+    """
+    last_error: httpx.HTTPError | None = None
+    for attempt in range(1, RETRIES + 1):
+        try:
+            response = client.get(url)
+            response.raise_for_status()
+            return response
+        except httpx.HTTPStatusError as exc:
+            status = exc.response.status_code
+            if status < 500 and status != 429:
+                raise
+            last_error = exc
+        except httpx.TransportError as exc:
+            last_error = exc
+
+        if attempt < RETRIES:
+            time.sleep(RETRY_DELAY_SECONDS * attempt)
+
+    assert last_error is not None
+    raise last_error
 
 
 def download(source: Source, raw_dir: Path, client: httpx.Client | None = None) -> Path:
@@ -41,8 +73,7 @@ def download(source: Source, raw_dir: Path, client: httpx.Client | None = None) 
         ) as own_client:
             return download(source, raw_dir, own_client)
 
-    response = client.get(source.api_url or source.url)
-    response.raise_for_status()
+    response = _get(client, source.api_url or source.url)
     dest.write_bytes(response.content)
     return dest
 
@@ -118,8 +149,7 @@ def crawl_sii_faq(source: Source, index_path: Path, client: httpx.Client) -> str
     for anchor in anchors:
         url = urljoin(source.url, anchor.get("href", ""))
         question = anchor.get_text(" ", strip=True)
-        response = client.get(url)
-        response.raise_for_status()
+        response = _get(client, url)
 
         page = BeautifulSoup(response.content, "html.parser")
         for tag in page(["script", "style"]):
