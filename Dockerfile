@@ -18,13 +18,15 @@ RUN apt-get update \
 
 COPY --from=ghcr.io/astral-sh/uv:0.9.7 /uv /bin/uv
 
-# Dependencies first so code changes do not invalidate the install layer.
-# README.md is required here: pyproject.toml declares it as the project readme.
-COPY pyproject.toml uv.lock README.md ./
-RUN uv sync --frozen --no-dev
+# Dependencies first, without the project itself: a README or source change then
+# does not invalidate the install layer.
+COPY pyproject.toml uv.lock ./
+RUN uv sync --frozen --no-dev --no-install-project
 
+COPY README.md ./
 COPY src ./src
 COPY web ./web
+RUN uv sync --frozen --no-dev
 
 # Bake the corpus, the vector index and the local models into the image.
 # Without this the container would download 7 documents plus ~85 MB of ONNX
