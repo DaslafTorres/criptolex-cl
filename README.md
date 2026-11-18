@@ -1,5 +1,8 @@
 # criptolex-cl
 
+[![CI](https://github.com/DaslafTorres/criptolex-cl/actions/workflows/ci.yml/badge.svg)](https://github.com/DaslafTorres/criptolex-cl/actions/workflows/ci.yml)
+[![Docker](https://github.com/DaslafTorres/criptolex-cl/actions/workflows/docker.yml/badge.svg)](https://github.com/DaslafTorres/criptolex-cl/actions/workflows/docker.yml)
+
 RAG assistant over **Chilean crypto and fintech regulation**, with citation-level evaluation.
 
 Ask a question in Spanish, get an answer grounded in official sources — with the document, article and link it came from.
@@ -130,12 +133,13 @@ docker run --rm -p 7860:7860 -e GROQ_API_KEY=gsk_... criptolex-cl
 
 On every push to `main`, GitHub Actions builds the image and pushes it to
 `ghcr.io/daslaftorres/criptolex-cl:latest`, which also proves the Dockerfile
-still builds. The public demo is a Hugging Face **Docker** Space that only pulls
-that image — the Space itself is two files, in
+still builds (the workflow is green). The public demo is a Hugging Face
+**Docker** Space that only pulls that image — the Space itself is two files, in
 [`deploy/huggingface/`](deploy/huggingface/), with the setup steps.
 
-Nothing in this section has been deployed yet: the image build has to pass once
-and the Space needs its `GROQ_API_KEY` secret before a URL can be linked here.
+The Space is not live yet: it needs a public container package, an
+`GROQ_API_KEY` secret and one deploy to verify end to end before a URL is linked
+here.
 
 ## Architecture
 
@@ -256,10 +260,14 @@ uv run python eval/run_eval.py --generate      # + citations, facts, refusals
 | Metric | Value |
 |---|---|
 | retrieval hit@5 | **0.90** (18/20) |
-| retrieval MRR@5 | 0.63 |
+| retrieval MRR@5 | 0.62 (0.61–0.63 across runs) |
 | latency p50 / p95 | 377 ms / 393 ms |
 | citation precision / recall | pending LLM key |
 | fact recall, refusal accuracy, cost | pending LLM key |
+
+`hit@5` is stable across runs, but MRR moves by about ±0.02: Chroma's approximate
+search and the cross-encoder both order near-ties slightly differently between
+processes, which is worth knowing before reading too much into a single run.
 
 The two retrieval misses are honest ranking errors, not missing evidence:
 
