@@ -48,6 +48,7 @@ TAIL_PATTERNS = (
 )
 SENTENCE_RE = re.compile(r"(?<=[.;:])\s+")
 PAGE_NUMBER_RE = re.compile(r"^-?\s*\d{1,4}\s*-?$")
+QUESTION_RE = re.compile(r"(?i)(?=\bpregunta\s*:\s*)")
 
 MIN_CHUNK_CHARS = 80
 MAX_CHUNK_CHARS = 2200
@@ -188,6 +189,30 @@ def split_articles(text: str) -> list[tuple[str, str]]:
         return []
     if marker is not None:
         sections.extend(_transitorios(text[marker.end() :]))
+    return sections
+
+
+def split_questions(text: str) -> list[tuple[str, str]]:
+    """Split a Q&A document so every answer keeps the question it answers.
+
+    In the SII FAQ the question line is the strongest lexical signal
+    ("¿pagan impuestos por vender criptomonedas?"), and generic paragraph
+    windows left it dangling at the end of the *previous* chunk, detached from
+    its answer. Each block here is one question plus its answer.
+
+    Returns an empty list when the text does not look like a Q&A page, so the
+    caller can fall back to paragraph windows.
+    """
+    starts = [match.start() for match in QUESTION_RE.finditer(text)]
+    if len(starts) < 3:
+        return []
+
+    sections: list[tuple[str, str]] = []
+    for index, start in enumerate(starts):
+        end = starts[index + 1] if index + 1 < len(starts) else len(text)
+        block = text[start:end].strip()
+        if len(block) >= MIN_CHUNK_CHARS:
+            sections.append(("", block))
     return sections
 
 
@@ -384,6 +409,8 @@ def chunk_source(source: Source, text: str) -> list[Chunk]:
     header = f"{source.title} ({source.issuer}, {source.year})"
 
     sections = split_articles(text) if source.legal else []
+    if not sections:
+        sections = split_questions(text)
     if not sections:
         sections = sliding_windows(text)
 

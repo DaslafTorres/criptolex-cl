@@ -33,7 +33,7 @@ from rank_bm25 import BM25Okapi
 
 from .config import get_settings
 
-COLLECTION_NAME = "criptolex_chunks_v2"
+COLLECTION_NAME = "criptolex_chunks_v3"
 RRF_K = 60
 DENSE_CANDIDATES = 20
 SPARSE_CANDIDATES = 20

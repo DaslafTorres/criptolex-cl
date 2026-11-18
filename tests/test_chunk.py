@@ -124,6 +124,28 @@ def test_transitorios_do_not_reuse_main_numbering() -> None:
     assert labels == ["Artículo 1", "Artículo 2", "Artículo 3", "Transitorio primero"]
 
 
+def test_qa_document_keeps_each_answer_with_its_question() -> None:
+    source = Source(
+        key="demo_faq",
+        title="FAQ Demo",
+        issuer="Demo",
+        url="https://example.com",
+        kind="html",
+        year=2025,
+        legal=False,
+    )
+    text = "\n\n".join(
+        f"Pregunta: ¿Consulta número {i}? Respuesta extensa número {i}. " + "Detalle. " * 20
+        for i in range(1, 5)
+    )
+    chunks = chunk_source(source, text)
+    assert len(chunks) == 4
+    for i, chunk in enumerate(chunks, 1):
+        body = chunk.text.partition("\n\n")[2]
+        assert f"¿Consulta número {i}?" in body
+        assert f"Respuesta extensa número {i}" in body
+
+
 def test_non_legal_source_falls_back_to_windows() -> None:
     source = Source(
         key="demo_faq",
