@@ -265,7 +265,10 @@ The two retrieval misses are honest ranking errors, not missing evidence:
    Circular 62's procedural section on *reporting* outranks it, because the
    question's wording matches the procedure more strongly than the list.
 2. *"¿Quiénes deben presentar la declaración jurada 1964?"* — the gold chunk lands
-   at rank 7, behind an SII FAQ answer about the same obligation.
+   at rank 7, behind an SII FAQ paragraph about form **1891**, a different
+   declaration. The question shares almost every word with the wrong answer and
+   only the form number differs, which is exactly the case where "looks
+   relevant" is not good enough.
 
 Both golds sit inside the top 8, so the next things to test are a metadata boost
 when a question names a specific form, and query expansion for list questions.
