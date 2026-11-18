@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>criptolex — Chilean crypto & fintech regulation, cited</title>
+    <meta
+      name="description"
+      content="Ask about Chilean crypto, fintech, AML and tax rules. Answers grounded in official sources, with document and article citations."
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="wordmark" href="/">
+          <span class="mark" aria-hidden="true"></span>
+          criptolex
+        </a>
+        <div class="topbar-right">
+          <span class="tag" data-i18n="tag">RAG · citation-level</span>
+          <div class="lang" role="group" aria-label="Language">
+            <button type="button" data-lang="en" class="active">EN</button>
+            <button type="button" data-lang="es">ES</button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <h1 data-i18n="headline">Chilean crypto regulation, answered with sources.</h1>
+          <p class="lede" data-i18n="lede">
+            Ask about fintech law, AML reporting or crypto taxes. Every answer cites the
+            official document and article it comes from — or tells you it found nothing.
+          </p>
+        </section>
+
+        <form id="ask-form" class="ask">
+          <label class="sr-only" for="question" data-i18n="label">Your question</label>
+          <div class="input-row">
+            <input
+              id="question"
+              name="question"
+              type="text"
+              autocomplete="off"
+              maxlength="400"
+              data-i18n-placeholder="placeholder"
+              placeholder="¿Pago impuestos si vendo bitcoin?"
+              required
+            />
+            <button type="submit" id="submit" data-i18n="ask">Ask</button>
+          </div>
+          <div class="examples" aria-label="Examples">
+            <button type="button" class="chip" data-question="¿Qué prestadores deben inscribirse en el registro de la CMF?">Registro CMF</button>
+            <button type="button" class="chip" data-question="¿Las ganancias por vender criptomonedas se declaran en Chile?">Impuestos</button>
+            <button type="button" class="chip" data-question="¿Qué operaciones sospechosas debe reportar una casa de cambio a la UAF?">UAF</button>
+            <button type="button" class="chip" data-question="¿Cuándo debe informarse un incidente de ciberseguridad a la CMF?">Incidentes</button>
+          </div>
+        </form>
+
+        <section id="result" class="result" hidden aria-live="polite">
+          <article class="answer-card">
+            <div class="answer-head">
+              <span class="label" data-i18n="answer">Answer</span>
+              <span id="meta" class="meta"></span>
+            </div>
+            <div id="answer" class="answer"></div>
+            <p id="refusal-note" class="refusal" hidden data-i18n="refusal">
+              No passage in the corpus supports an answer. Try rephrasing the question.
+            </p>
+          </article>
+
+          <div id="sources-wrap">
+            <div class="sources-head">
+              <span class="label" data-i18n="sources">Sources</span>
+              <span class="hint" data-i18n="sourcesHint">Only sources cited in the answer</span>
+            </div>
+            <ol id="sources" class="sources"></ol>
+          </div>
+        </section>
+
+        <section id="error" class="error" hidden></section>
+      </main>
+
+      <footer>
+        <p data-i18n="disclaimer">
+          Informational only — not legal or tax advice. Sources: BCN, CMF, UAF and SII.
+        </p>
+        <p class="fine" data-i18n="fine">
+          Answers are written in Spanish because the corpus is in Spanish.
+        </p>
+      </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

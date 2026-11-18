@@ -13,6 +13,8 @@ class Settings(BaseSettings):
 
     groq_api_key: str | None = None
     llm_model: str = "llama-3.3-70b-versatile"
+    llm_provider: str = "groq"
+    llm_timeout: float = 30.0
 
     top_k: int = 5
     rerank: bool = True
@@ -22,6 +24,7 @@ class Settings(BaseSettings):
     raw_dir: Path = ROOT / "data" / "raw"
     processed_dir: Path = ROOT / "data" / "processed"
     chroma_dir: Path = ROOT / "data" / "chroma"
+    web_dir: Path = ROOT / "web"
 
 
 @lru_cache

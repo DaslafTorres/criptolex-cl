@@ -62,11 +62,23 @@ class Retrieved:
     article: str | None
     score: float
     stage: str
+    doc_title: str = ""
+    issuer: str = ""
+    url: str = ""
+    year: int = 0
 
     @property
     def snippet(self) -> str:
         body = self.text.partition("\n\n")[2] or self.text
         return " ".join(body.split())[:240]
+
+    @property
+    def citation(self) -> str:
+        """Human-readable citation, e.g. ``NCG 502 (CMF, 2024) · I. REGISTRO``."""
+        title = (
+            f"{self.doc_title} ({self.issuer}, {self.year})" if self.doc_title else self.source_key
+        )
+        return f"{title} · {self.article}" if self.article else title
 
     def label(self) -> str:
         if self.article:
@@ -197,6 +209,10 @@ class HybridRetriever:
                     article=meta["article"] or None,
                     score=1.0 - float(distance),
                     stage="dense",
+                    doc_title=meta["doc_title"],
+                    issuer=self.by_id[chunk_id]["issuer"],
+                    url=meta["url"],
+                    year=int(meta["year"]),
                 )
             )
         return hits
@@ -222,6 +238,10 @@ class HybridRetriever:
                     article=chunk["article"],
                     score=score,
                     stage="bm25",
+                    doc_title=chunk["doc_title"],
+                    issuer=chunk["issuer"],
+                    url=chunk["url"],
+                    year=int(chunk["year"]),
                 )
             )
         return hits
@@ -246,6 +266,10 @@ class HybridRetriever:
                 article=items[chunk_id].article,
                 score=score,
                 stage="fused",
+                doc_title=items[chunk_id].doc_title,
+                issuer=items[chunk_id].issuer,
+                url=items[chunk_id].url,
+                year=items[chunk_id].year,
             )
             for chunk_id, score in ordered
         ]
@@ -268,6 +292,10 @@ class HybridRetriever:
                     article=item["article"],
                     score=float(result["score"]),
                     stage="rerank",
+                    doc_title=item["doc_title"],
+                    issuer=item["issuer"],
+                    url=item["url"],
+                    year=int(item["year"]),
                 )
             )
         return hits

@@ -8,7 +8,7 @@ Ask a question in Spanish, get an answer grounded in official sources — with t
 
 ## Status
 
-🚧 In development — milestones M1 (ingestion) and M2 (retrieval) complete.
+🚧 In development — M1 (ingestion), M2 (retrieval) and M3 (API + UI) complete.
 
 **Corpus:** 7 official documents (831,549 chars) → **628 citable chunks** (article-level for laws).
 
@@ -17,7 +17,7 @@ Ask a question in Spanish, get an answer grounded in official sources — with t
 | M0 | Scaffold, tooling, CI | ✅ |
 | M1 | Ingestion + article-aware chunking | ✅ |
 | M2 | Hybrid retrieval (BM25 + vectors) + reranking | ✅ |
-| M3 | API `/ask` + chat UI with source cards | ⏳ |
+| M3 | API `/ask` + chat UI with source cards | ✅ |
 | M4 | Evaluation harness + deploy | ⏳ |
 
 ## Sources
@@ -51,7 +51,65 @@ uv run python -m criptolex.chunk    # build data/processed/chunks.jsonl
 # ask the retriever directly (no API key needed)
 uv run python -m criptolex.retrieve "¿pago impuestos si vendo bitcoin?"
 uv run python -m criptolex.retrieve "plazo para informar incidentes" --compare
+
+# API + chat UI
+uv run uvicorn criptolex.api:app --reload   # http://127.0.0.1:8000
 ```
+
+No Groq key yet? Run the API with `LLM_PROVIDER=extractive` to get a no-LLM
+demo that quotes the best retrieved passage instead of writing an answer.
+
+## API
+
+```http
+POST /ask
+{ "question": "¿Las ganancias por vender criptomonedas se declaran en Chile?", "k": 5 }
+```
+
+```json
+{
+  "answer": "Sí. Toda persona domiciliada o residente en Chile debe declarar ... [1]",
+  "sources": [
+    {
+      "n": 1,
+      "source_key": "sii_faq_cripto",
+      "title": "Preguntas frecuentes — Activos digitales y criptomonedas",
+      "issuer": "SII",
+      "year": 2025,
+      "article": null,
+      "url": "https://www.sii.cl/...",
+      "snippet": "Pregunta: ¿Las ganancias obtenidas ..."
+    }
+  ],
+  "grounded": true,
+  "refused": false,
+  "model": "llama-3.3-70b-versatile",
+  "latency_ms": 2140
+}
+```
+
+The citation contract is enforced server-side, not requested politely:
+
+- The model sees numbered extracts and must cite them inline as `[n]`.
+- Any citation pointing outside the retrieved set is **removed** before the
+  response leaves the API, and `sources` contains only the chunks the answer
+  actually cited.
+- If the model says the extracts are insufficient, the API returns a fixed
+  refusal with `refused: true` and no sources.
+- `grounded` is `false` when the answer carries no valid citation, which is how
+  the evaluation harness will detect unsupported prose.
+
+`GET /health` reports the provider and whether an LLM key is configured.
+
+## UI
+
+A single static page (`web/`) served by the same FastAPI process: dark,
+minimal, English chrome with an EN/ES toggle, and answers stay in Spanish because
+the corpus is. Citations in the answer are clickable and scroll to the matching
+source card, which links to the official PDF or page.
+
+No build step, no frontend framework — the whole client is one HTML file, one
+stylesheet and ~180 lines of JavaScript.
 
 ## Architecture
 
@@ -142,7 +200,8 @@ citation-level evaluation over generated answers.
 - [x] Ingestion and text extraction
 - [x] Article-aware chunking with tests
 - [x] Hybrid retrieval + reranking (hit@5 1.00 on the probe set)
-- [ ] Citation-enforcing generation
+- [x] Citation-enforcing generation
+- [x] API `/ask` + chat UI
 - [ ] Golden evaluation set (25 questions)
 - [ ] Embedding and chunk-size benchmark (English vs multilingual MiniLM)
 - [ ] Metrics: citation accuracy, faithfulness, refusal rate, latency, cost
