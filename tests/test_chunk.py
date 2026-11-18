@@ -1,4 +1,10 @@
-from criptolex.chunk import Chunk, chunk_source, normalize, split_articles
+from criptolex.chunk import (
+    Chunk,
+    chunk_source,
+    normalize,
+    split_articles,
+    split_long,
+)
 from criptolex.sources import Source
 
 LEGAL = Source(
@@ -24,14 +30,56 @@ def test_split_articles_finds_boundaries() -> None:
     )
     articles = split_articles(text)
     labels = [label for label, _ in articles]
-    assert "Artículo 1°" in labels
-    assert "Artículo 2°" in labels
-    assert "Artículo 3°" in labels
+    assert "Artículo 1" in labels
+    assert "Artículo 2" in labels
+    assert "Artículo 3" in labels
 
 
 def test_split_articles_requires_enough_markers() -> None:
     text = "Artículo 1°.- Texto único sin más artículos en el documento completo."
     assert split_articles(text) == []
+
+
+def test_nested_article_heading_is_not_its_own_chunk() -> None:
+    """Laws that amend other laws quote foreign articles; those must not split."""
+    text = (
+        "Artículo 1.- " + ("Contenido de la ley base. " * 6) + "\n\n"
+        "Artículo 2.- Modifica la Ley 18.045.\n\n"
+        "Artículo 24.- Son intermediarios de valores las personas que "
+        + ("intermedien instrumentos financieros. " * 6)
+        + "\n\n"
+        "Artículo 3.- " + ("Contenido final de la ley. " * 6)
+    )
+    articles = split_articles(text)
+    labels = [label for label, _ in articles]
+    assert labels == ["Artículo 1", "Artículo 2", "Artículo 3"]
+    assert "intermedien instrumentos financieros" in dict(articles)["Artículo 2"]
+
+
+def test_worded_transitorios_get_own_labels() -> None:
+    text = (
+        "Artículo 1.- " + ("Contenido normativo. " * 20) + "\n\n"
+        "Artículo 2.- " + ("Contenido normativo. " * 20) + "\n\n"
+        "Artículo 3.- " + ("Contenido normativo. " * 20) + "\n\n"
+        "Disposiciones transitorias\n\n"
+        "Artículo primero.- " + ("Entrará en vigencia de inmediato. " * 8) + "\n\n"
+        "Artículo segundo.- " + ("Plazo de adecuación de doce meses. " * 8)
+    )
+    labels = [label for label, _ in split_articles(text)]
+    assert labels[-2:] == ["Transitorio primero", "Transitorio segundo"]
+
+
+def test_numeric_transitorios_are_relabelled_as_ordinals() -> None:
+    text = (
+        "Artículo 1.- " + ("Contenido normativo. " * 20) + "\n\n"
+        "Artículo 2.- " + ("Contenido normativo. " * 20) + "\n\n"
+        "Artículo 3.- " + ("Contenido normativo. " * 20) + "\n\n"
+        "ARTICULOS TRANSITORIOS\n\n"
+        "Artículo 1º.- " + ("Vigencia diferida en regiones. " * 8) + "\n\n"
+        "Artículo 2º.- " + ("Facultades reglamentarias. " * 8)
+    )
+    labels = [label for label, _ in split_articles(text)]
+    assert labels[-2:] == ["Transitorio primero", "Transitorio segundo"]
 
 
 def test_chunk_source_uses_article_metadata() -> None:
@@ -44,6 +92,38 @@ def test_chunk_source_uses_article_metadata() -> None:
     assert all(chunk.article is not None for chunk in chunks)
     assert "Ley Demo" in chunks[0].text
     assert len({chunk.id for chunk in chunks}) == len(chunks)
+
+
+def test_long_article_is_split_and_respects_max_size() -> None:
+    body = ("Contenido normativo extenso sin cortes de oración " * 150).strip()
+    text = "\n\n".join(
+        f"Artículo {i}.- {body}" for i in range(1, 4)
+    )
+    chunks = chunk_source(LEGAL, text)
+    assert len(chunks) > 3
+    assert all(len(chunk.text) <= 2200 for chunk in chunks)
+
+
+def test_split_long_preserves_every_word() -> None:
+    words = [f"palabra{i}" for i in range(1200)]
+    body = " ".join(words)
+    parts = split_long("Artículo 1", body, max_chars=500)
+    assert len(parts) > 1
+    assert all(len(part) <= 500 for _, part in parts)
+    assert len({label for label, _ in parts}) == 1
+    assert set(" ".join(part for _, part in parts).split()) == set(words)
+
+
+def test_transitorios_do_not_reuse_main_numbering() -> None:
+    text = (
+        "Artículo 1.- " + ("Contenido normativo. " * 20) + "\n\n"
+        "Artículo 2.- " + ("Contenido normativo. " * 20) + "\n\n"
+        "Artículo 3.- " + ("Contenido normativo. " * 20) + "\n\n"
+        "Disposiciones transitorias\n\n"
+        "Artículo 1.- " + ("Disposición transitoria. " * 10)
+    )
+    labels = [label for label, _ in split_articles(text)]
+    assert labels == ["Artículo 1", "Artículo 2", "Artículo 3", "Transitorio primero"]
 
 
 def test_non_legal_source_falls_back_to_windows() -> None:

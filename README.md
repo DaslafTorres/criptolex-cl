@@ -10,7 +10,7 @@ Ask a question in Spanish, get an answer grounded in official sources — with t
 
 🚧 In development — milestone M1 (ingestion) complete.
 
-**Corpus:** 7 official documents → **543 citable chunks** (article-level for laws).
+**Corpus:** 7 official documents (831,549 chars) → **628 citable chunks** (article-level for laws).
 
 | Milestone | Scope | Status |
 |---|---|---|
@@ -72,9 +72,25 @@ api.py (FastAPI) ──► /ask  { answer, sources[] }
 
 ## Why article-aware chunking
 
-Legal text is already segmented by its authors. Splitting on `Artículo N°`
+Legal text is already segmented by its authors. Splitting on `Artículo N`
 instead of fixed-size windows keeps each chunk self-contained and citable, which
 is what makes citation-level evaluation possible.
+
+Three details make this harder than a regex, and each one is handled and tested:
+
+1. **Laws that amend other laws** quote the articles of those laws. Ley 21.521
+   would appear to have 254 articles; it has 46. Top-level headings are accepted
+   only when they continue the sequence (`Artículo 45` → `Artículo 46`), so
+   nested headings stay inside the article that quotes them.
+2. **Transitory provisions** restart their numbering (`Artículo primero…`, or
+   `Artículo 1º…` in older laws). They are detected as a separate section and
+   labelled `Transitorio primero`, `Transitorio segundo`, …
+3. **PDF extraction noise** — page numbers, running page headers and the
+   Constitutional Court certification — is dropped, and no chunk exceeds 2,200
+   characters.
+
+Result: 46 articles + 9 transitory provisions for Ley 21.521, and 41 articles +
+2 `bis` + 7 transitory provisions for Ley 19.913, with zero duplicate chunks.
 
 ## Roadmap
 
