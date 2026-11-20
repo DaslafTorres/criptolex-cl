@@ -12,6 +12,10 @@ short_description: Chilean crypto regulation, answered with citations
 
 # criptolex-cl — live demo
 
+> **Retained for reference, not used.** Docker Spaces on Hugging Face now require
+> a PRO subscription on free `cpu-basic` hardware, so the deployed demo lives on
+> Modal instead: see [`deploy/modal_app.py`](../modal_app.py).
+
 Ask a question about Chilean crypto, fintech, AML or tax rules and get an answer
 grounded in official sources (BCN, CMF, UAF, SII), with the document, article and
 link it came from — or an explicit refusal when the corpus does not support it.

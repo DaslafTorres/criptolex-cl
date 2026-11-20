@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/DaslafTorres/criptolex-cl/actions/workflows/ci.yml/badge.svg)](https://github.com/DaslafTorres/criptolex-cl/actions/workflows/ci.yml)
 [![Docker](https://github.com/DaslafTorres/criptolex-cl/actions/workflows/docker.yml/badge.svg)](https://github.com/DaslafTorres/criptolex-cl/actions/workflows/docker.yml)
+[![Live demo](https://img.shields.io/badge/live_demo-open-3fb950)](https://daslaftorresarteaga--criptolex-cl-web.us-east.modal.run)
 
 RAG assistant over **Chilean crypto and fintech regulation**, with citation-level evaluation.
 
@@ -11,7 +12,10 @@ Ask a question in Spanish, get an answer grounded in official sources — with t
 
 ## Status
 
-🚧 In development — ingestion, retrieval, API and the evaluation harness are done; deployment is next.
+🟢 **Live demo: <https://daslaftorresarteaga--criptolex-cl-web.us-east.modal.run>** —
+ingestion, retrieval, API, evaluation and deployment are done. The first visit
+after a quiet period takes ~10 s while the container starts; after that answers
+come back in under a second.
 
 **Corpus:** 7 official documents (831,549 chars) → **630 citable chunks** (article-level for laws).
 
@@ -21,7 +25,8 @@ Ask a question in Spanish, get an answer grounded in official sources — with t
 | M1 | Ingestion + article-aware chunking | ✅ |
 | M2 | Hybrid retrieval (BM25 + vectors) + reranking | ✅ |
 | M3 | API `/ask` + chat UI with source cards | ✅ |
-| M4 | Evaluation harness + generation metrics | ✅ (deploy pending) |
+| M4 | Evaluation harness + generation metrics | ✅ |
+| M5 | Deploy (Modal, scales to zero) | ✅ |
 
 ## Sources
 
@@ -126,20 +131,32 @@ docker run --rm -p 7860:7860 -e GROQ_API_KEY=gsk_... criptolex-cl
 # no key: -e LLM_PROVIDER=extractive
 ```
 
-- `PORT` is respected (default `7860`, the Hugging Face Spaces convention).
+- `PORT` is respected (default `7860`).
 - The Groq key is read at runtime and is never baked into the image.
 - Official sites are occasionally slow, so ingestion retries transient failures
   instead of failing the build on one hiccup.
 
 On every push to `main`, GitHub Actions builds the image and pushes it to
 `ghcr.io/daslaftorres/criptolex-cl:latest`, which also proves the Dockerfile
-still builds (the workflow is green). The public demo is a Hugging Face
-**Docker** Space that only pulls that image — the Space itself is two files, in
-[`deploy/huggingface/`](deploy/huggingface/), with the setup steps.
+still builds (the workflow is green).
 
-The Space is not live yet: it needs a public container package, an
-`GROQ_API_KEY` secret and one deploy to verify end to end before a URL is linked
-here.
+The public demo runs on [Modal](https://modal.com) and pulls that exact image
+with `Image.from_registry`, so there is no second build to drift out of sync.
+[`deploy/modal_app.py`](deploy/modal_app.py) is ~40 lines: it attaches the Groq
+secret, requests 2 cores / 4 GB, keeps the container warm for five minutes after
+the last request and scales to zero when idle.
+
+```bash
+modal secret create groq-api-key GROQ_API_KEY=gsk_...
+modal deploy deploy/modal_app.py
+```
+
+Two hosting notes, because they cost a day to find out: Hugging Face used to be
+the obvious home for this kind of demo, but **Docker and Gradio Spaces now require
+a PRO subscription** on free `cpu-basic` hardware (`402` on the create call), so
+the Space path in `deploy/huggingface/` is kept only as history. Render's free
+tier gives 512 MB of RAM, which is not enough for the embedding model, the
+cross-encoder and Chroma in one process.
 
 ## Architecture
 
@@ -331,7 +348,8 @@ citation and refusal, is in [`eval/results.json`](eval/results.json).
 - [x] Retrieval metrics: hit@5 0.90, MRR@5 0.63
 - [x] Generation metrics: citation recall 0.85, fact recall 0.70, abstention 0.80, $0.002/question
 - [ ] Embedding and chunk-size benchmark (English vs multilingual MiniLM)
-- [ ] Deploy and demo GIF
+- [x] Deploy on Modal: public URL, scale to zero, cold start under 10 s
+- [ ] Short demo GIF for the README
 
 ## License
 
