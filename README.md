@@ -293,7 +293,9 @@ The two retrieval misses are honest ranking errors, not missing evidence:
 Both golds sit inside the top 8, so the next things to test are a metadata boost
 when a question names a specific form, and query expansion for list questions.
 
-**Citation precision counts a citation as correct only when it points at one of the
+### How to read the generation numbers
+
+Citation precision counts a citation as correct **only when it points at one of the
 1–2 gold chunks for that question.** A typical answer cites 2–4 fragments, and
 several of the "incorrect" ones are articles that genuinely support the sentence
 but are not in the gold set, so this number understates citation quality. Recall
