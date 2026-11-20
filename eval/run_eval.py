@@ -31,9 +31,9 @@ from criptolex.generate import (
 )
 from criptolex.retrieve import HybridRetriever, load_chunks
 
-# Groq public list prices for llama-3.3-70b-versatile, USD per million tokens.
-INPUT_USD_PER_MTOK = 0.59
-OUTPUT_USD_PER_MTOK = 0.79
+# Groq list prices for qwen/qwen3.8-27b, USD per million tokens.
+INPUT_USD_PER_MTOK = 0.80
+OUTPUT_USD_PER_MTOK = 4.00
 
 
 def normalize(text: str) -> str:
@@ -89,7 +89,12 @@ def make_answerer():
         return extractive_answer, None
     if not settings.groq_api_key:
         raise SystemExit("No GROQ_API_KEY. Run retrieval-only, or set LLM_PROVIDER=extractive.")
-    client = GroqClient(settings.groq_api_key, settings.llm_model, settings.llm_timeout)
+    client = GroqClient(
+        settings.groq_api_key,
+        settings.llm_model,
+        settings.llm_timeout,
+        settings.llm_max_tokens,
+    )
 
     def answer(question: str, hits) -> Answer:
         return generate_answer(question, hits, client)

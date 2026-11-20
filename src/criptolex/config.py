@@ -12,9 +12,12 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
     groq_api_key: str | None = None
-    llm_model: str = "llama-3.3-70b-versatile"
+    llm_model: str = "qwen/qwen3.8-27b"
     llm_provider: str = "groq"
     llm_timeout: float = 30.0
+    # The free tier enforces 1,000 output tokens per minute, so a larger request
+    # is rejected before it runs. Answers are capped at 180 words anyway.
+    llm_max_tokens: int = 700
 
     top_k: int = 5
     rerank: bool = True

@@ -1,10 +1,18 @@
+from types import SimpleNamespace
+
+import httpx
+import pytest
+from groq import RateLimitError
+
 from criptolex.generate import (
     REFUSAL,
+    GroqClient,
     build_prompt,
     clean_citations,
     extractive_answer,
     generate_answer,
     is_refusal,
+    retry_wait,
 )
 from criptolex.retrieve import Retrieved
 
@@ -59,6 +67,13 @@ def test_clean_citations_handles_lists_and_duplicates() -> None:
     assert cited == [1, 2]
 
 
+def test_clean_citations_normalises_fullwidth_brackets() -> None:
+    text, cited = clean_citations("Definición 【1】 y ejemplo 【2】.", n_sources=3)
+    assert cited == [1, 2]
+    assert "[1]" in text and "[2]" in text
+    assert "【" not in text
+
+
 def test_generate_answer_returns_only_cited_sources() -> None:
     client = FakeClient("Los prestadores deben inscribirse [1][9].")
     answer = generate_answer("¿Quién debe inscribirse?", [HIT], client)
@@ -104,3 +119,67 @@ def test_extractive_answer_quotes_the_best_hit() -> None:
     assert answer.sources[0].n == 1
     assert "Sólo podrán dedicarse" in answer.text
     assert answer.text.endswith("[1]")
+
+
+def rate_limit_error(retry_after: str = "0") -> RateLimitError:
+    request = httpx.Request("POST", "https://api.groq.com/openai/v1/chat/completions")
+    response = httpx.Response(429, headers={"retry-after": retry_after}, request=request)
+    return RateLimitError("rate limited", response=response, body=None)
+
+
+class FakeCompletions:
+    def __init__(self, failures: int = 0, content: str = "ok") -> None:
+        self.failures = failures
+        self.content = content
+        self.calls = 0
+        self.kwargs: dict = {}
+
+    def create(self, **kwargs):
+        self.calls += 1
+        self.kwargs = kwargs
+        if self.calls <= self.failures:
+            raise rate_limit_error("0.01")
+        return SimpleNamespace(
+            usage=SimpleNamespace(prompt_tokens=10, completion_tokens=5),
+            choices=[SimpleNamespace(message=SimpleNamespace(content=self.content))],
+        )
+
+
+def client_with(completions: FakeCompletions) -> GroqClient:
+    client = GroqClient("test-key", "fake-model", max_tokens=64)
+    client._client = SimpleNamespace(chat=SimpleNamespace(completions=completions))
+    return client
+
+
+def test_groq_client_retries_rate_limit_then_succeeds(monkeypatch) -> None:
+    completions = FakeCompletions(failures=1)
+    client = client_with(completions)
+    monkeypatch.setattr("criptolex.generate.time.sleep", lambda _seconds: None)
+
+    assert client.complete("system", "user") == "ok"
+    assert completions.calls == 2
+    assert (client.prompt_tokens, client.completion_tokens) == (10, 5)
+
+
+def test_groq_client_gives_up_after_three_rate_limits(monkeypatch) -> None:
+    completions = FakeCompletions(failures=99)
+    client = client_with(completions)
+    monkeypatch.setattr("criptolex.generate.time.sleep", lambda _seconds: None)
+
+    with pytest.raises(RateLimitError):
+        client.complete("system", "user")
+    assert completions.calls == 3
+
+
+def test_groq_client_sends_configured_budget() -> None:
+    completions = FakeCompletions()
+    client_with(completions).complete("system", "user")
+    assert completions.kwargs["max_tokens"] == 64
+    assert completions.kwargs["temperature"] == 0
+    assert completions.kwargs["model"] == "fake-model"
+
+
+def test_retry_wait_reads_header_and_caps_it() -> None:
+    assert retry_wait(rate_limit_error("2.5")) == 2.5
+    assert retry_wait(rate_limit_error("999")) == 60.0
+    assert retry_wait(rate_limit_error("not-a-number")) == 5.0

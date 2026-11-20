@@ -1,341 +1,417 @@
 {
   "k": 5,
-  "generated": false,
-  "model": null,
+  "generated": true,
+  "model": "qwen/qwen3.8-27b",
   "summary": {
     "n": 25,
     "n_answerable": 20,
     "n_unanswerable": 5,
     "retrieval_hit@5": 0.9,
     "retrieval_mrr@5": 0.6333333333333333,
-    "latency_p50_ms": 377,
-    "latency_p95_ms": 393
+    "latency_p50_ms": 14547,
+    "latency_p95_ms": 21347,
+    "citation_precision": 0.3953488372093023,
+    "citation_recall": 0.85,
+    "fact_recall": 0.696969696969697,
+    "grounded_rate": 0.95,
+    "false_refusal_rate": 0.05,
+    "refusal_accuracy": 0.8,
+    "tokens_prompt": 46127,
+    "tokens_completion": 3504,
+    "cost_usd_total": 0.05092,
+    "cost_usd_per_question": 0.00204
   },
   "rows": [
     {
       "id": "inscripcion_servicios",
       "answerable": true,
       "gold_rank": 1,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "ley_21521:0007",
+        "ley_19913:0007",
+        "ncg_502_cmf:0009"
+      ],
+      "cited_gold": 1,
       "facts_expected": 2,
-      "facts_found": 0,
-      "latency_ms": 389,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 2,
+      "latency_ms": 1418,
+      "answer_latency_ms": 1030,
+      "answer": "Según la Ley 21.521, solo podrán dedicarse profesionalmente a la prestación de los siguientes servicios quienes estén inscritos en el Registro de Prestadores de Servicios Financieros: plataforma de financiamiento colectivo, sistema alternativo de transacción, intermediación de instrumentos financieros, enrutamiento de órdenes, asesoría crediticia, asesoría de inversión y custodia de instrumentos financieros [1].\n\nLa normativa complementaria confirma que, para prestar estos servicios regulados en Chile, se debe solicitar la previa inscripción en dicho registro [5]. Además, la Ley 19.913 establece que quienes estén inscritos en este registro y presten servicios como plataforma de financiamiento colectivo, sistemas alternativos de transacción, custodia de instrumentos financieros, intermediación de esos instrumentos o iniciación de pagos, tienen la obligación de reportar operaciones sospechosas de lavado de activos [2]."
     },
     {
       "id": "definicion_criptoactivo",
       "answerable": true,
       "gold_rank": 3,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "ley_21521:0003"
+      ],
+      "cited_gold": 1,
       "facts_expected": 2,
-      "facts_found": 0,
-      "latency_ms": 371,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 2,
+      "latency_ms": 2142,
+      "answer_latency_ms": 1776,
+      "answer": "La Ley Fintech define los activos financieros virtuales o criptoactivos como la representación digital de unidades de valor, bienes o servicios, con la excepción del dinero, ya sea en moneda nacional o divisas. Estos activos pueden ser transferidos, almacenados o intercambiados digitalmente [3]."
     },
     {
       "id": "vigencia_ley",
       "answerable": true,
       "gold_rank": 2,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "ncg_502_cmf:0241",
+        "ley_21521:0099"
+      ],
+      "cited_gold": 1,
       "facts_expected": 2,
-      "facts_found": 0,
-      "latency_ms": 363,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 2,
+      "latency_ms": 1330,
+      "answer_latency_ms": 980,
+      "answer": "La Ley Fintech (Ley N° 21.521) entró en vigencia treinta días después de su publicación en el Diario Oficial [2]. Sin embargo, esta regla general tiene excepciones: los títulos II y III, así como los artículos 32, 35 y el N°2 del artículo 37, rigen a contar de la entrada en vigencia de la normativa respectiva que dicte la Comisión para el Mercado Financiero (CMF) [2].\n\nEspecíficamente, la Norma de Carácter General N° 502, que regula el registro y obligaciones de los prestadores Fintech, entró en vigor el 3 de febrero de 2024 [1]. Por lo tanto, la vigencia efectiva de las disposiciones operativas depende de la publicación de las normas reglamentarias de la CMF, como la NCG 502, y no solo de la fecha de publicación de la ley en el Diario Oficial [1][2]."
     },
     {
       "id": "operacion_sospechosa",
       "answerable": true,
       "gold_rank": 1,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "ley_19913:0008"
+      ],
+      "cited_gold": 1,
       "facts_expected": 2,
-      "facts_found": 0,
-      "latency_ms": 375,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 2,
+      "latency_ms": 1394,
+      "answer_latency_ms": 1015,
+      "answer": "Según el artículo 3 de la Ley 19.913, se entiende por operación sospechosa todo acto, operación o transacción que, de acuerdo con los usos y costumbres de la actividad de que se trate, resulte inusual o carente de justificación económica o jurídica aparente [1].\n\nAsimismo, se incluye aquella que pudiera constituir alguna de las conductas contempladas en el artículo 8º de la ley Nº 18.314, o que sea realizada por una persona natural o jurídica que figure en los listados de alguna resolución del Consejo de Seguridad de las Naciones Unidas [1]. Esta definición aplica tanto si la operación se realiza en forma aislada como reiterada [1].\n\nLa Unidad de Análisis Financiero (UAF) es la entidad competente para señalar a las entidades obligadas las situaciones que especialmente habrán de considerarse como indiciarias de operaciones o transacciones sospechosas [1]."
     },
     {
       "id": "obligados_informar",
       "answerable": true,
       "gold_rank": null,
-      "refused": null,
-      "citations": [],
+      "refused": false,
+      "citations": [
+        "circular_62_uaf:0008",
+        "circular_62_uaf:0009",
+        "circular_62_uaf:0012",
+        "circular_62_uaf:0005"
+      ],
       "cited_gold": 0,
       "facts_expected": 2,
       "facts_found": 0,
-      "latency_ms": 380,
-      "answer_latency_ms": 0,
-      "answer": null
+      "latency_ms": 1310,
+      "answer_latency_ms": 879,
+      "answer": "La Circular 62 de la UAF establece que los \"sujetos obligados\" deben reportar operaciones sospechosas [1]. Estos incluyen a quienes ejercen actividades profesionales, comerciales o empresariales sujetas a la Ley N°19.913 [2]. Específicamente, las personas naturales o jurídicas supervisadas por la Comisión para el Mercado Financiero que se inscriban voluntariamente en el Registro de la UAF adquieren la calidad plena de sujeto obligado, debiendo cumplir con todas las obligaciones legales [5].\n\nEstos sujetos deben remitir el Reporte de Operaciones Sospechosas (ROS) a la UAF en el menor tiempo posible, sin periodicidad ni monto mínimo establecido [2]. Además, deben informar de inmediato a la UAF si identifican a personas incluidas en las listas de las Resoluciones del Consejo de Seguridad de Naciones Unidas, para iniciar procesos de congelamiento de activos [4]."
     },
     {
       "id": "sanciones_leves",
       "answerable": true,
       "gold_rank": 2,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "ley_19913:0026",
+        "ley_19913:0030",
+        "ley_19913:0027"
+      ],
+      "cited_gold": 1,
       "facts_expected": 2,
-      "facts_found": 0,
-      "latency_ms": 375,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 2,
+      "latency_ms": 7280,
+      "answer_latency_ms": 6919,
+      "answer": "Según el artículo 20 de la Ley 19.913, las sanciones por infracciones leves consisten en una amonestación y una multa a beneficio fiscal de hasta 800 Unidades de Fomento [2]. Para aplicar esta sanción, la Unidad de Análisis Financiero debe acreditar que el infractor tenía conocimiento de la instrucción incumplida [2].\n\nAdemás, si la infracción es cometida por una persona jurídica, estas sanciones también pueden aplicarse a sus directores o representantes legales que hayan concurrido con su voluntad a la materialización del hecho [5]. El procedimiento administrativo para aplicar estas sanciones prescribe a los tres años desde el cometimiento de la infracción, plazo que se interrumpe con la notificación de la formulación de cargos [3]."
     },
     {
       "id": "ros_oportunidad",
       "answerable": true,
       "gold_rank": 1,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "circular_62_uaf:0009"
+      ],
+      "cited_gold": 1,
       "facts_expected": 1,
-      "facts_found": 0,
-      "latency_ms": 382,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 1,
+      "latency_ms": 16392,
+      "answer_latency_ms": 15972,
+      "answer": "La Circular 62 de la UAF establece que los Reportes de Operaciones Sospechosas (ROS) no tienen una periodicidad ni un monto monetario específico establecido [1]. La norma indica que deben ser reportados a la UAF \"en el menor tiempo posible\" todas las operaciones sospechosas de las que se tenga conocimiento durante el ejercicio de la actividad profesional, comercial o empresarial [1].\n\nAdemás, se exige acompañar la documentación fundante necesaria y cumplir con todas las instrucciones definidas por la UAF [1]. Para garantizar la seguridad, confidencialidad y oportunidad de esta información, los sujetos obligados deben contar con procedimientos internos específicos, los cuales deben constar en su Manual de Prevención y Detección del Lavado de Activos y del Financiamiento del Terrorismo [1]."
     },
     {
       "id": "pep_definicion",
       "answerable": true,
       "gold_rank": 1,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "circular_62_uaf:0030",
+        "circular_62_uaf:0028"
+      ],
+      "cited_gold": 1,
       "facts_expected": 1,
-      "facts_found": 0,
-      "latency_ms": 374,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 1,
+      "latency_ms": 16812,
+      "answer_latency_ms": 16517,
+      "answer": "Según la Circular 62 de la UAF, se califican como Personas Expuestas Políticamente (PEP) a los chilenos y extranjeros que desempeñen o hayan desempeñado funciones públicas destacadas en un país, hasta al menos un año después de finalizar el ejercicio [1].\n\nEspecíficamente, esta categoría incluye a jefes de Estado o Gobierno, políticos de alta jerarquía, funcionarios gubernamentales, judiciales o militares de alta jerarquía, y altos ejecutivos de empresas estatales [1]. Asimismo, se extiende a su cónyuge, conviviente civil, parientes hasta el segundo grado de consanguinidad (abuelos, nietos y hermanos), y a las personas naturales con las que hayan celebrado un pacto de actuación conjunta que les otorgue poder de voto suficiente para influir en sociedades chilenas [1].\n\nLos sujetos obligados deben aplicar estas definiciones como mínimos, pudiendo ampliar la categoría o los plazos según su política de riesgos [1]. Además, si un cliente persona jurídica declara a una PEP como beneficiario final, o el sujeto obligado lo determina, deben implementarse las medidas de debida diligencia reforzada previstas para PEPs respecto de dicha entidad [2]."
     },
     {
       "id": "oficial_cumplimiento",
       "answerable": true,
       "gold_rank": 2,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "circular_62_uaf:0006",
+        "circular_62_uaf:0014",
+        "circular_62_uaf:0007"
+      ],
+      "cited_gold": 1,
       "facts_expected": 2,
-      "facts_found": 0,
-      "latency_ms": 369,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 2,
+      "latency_ms": 15402,
+      "answer_latency_ms": 15111,
+      "answer": "El oficial de cumplimiento es el responsable de relacionarse con la UAF y de coordinar e implementar las políticas y procedimientos de prevención y detección de actos, operaciones o transacciones vinculadas al lavado de activos, financiamiento del terrorismo y proliferación de armas de destrucción masiva (LA/FT/FP) [2].\n\nPara asegurar su independencia, debe detentar un cargo de alta responsabilidad, como gerente de área o división [2]. El sujeto obligado debe proveerle de los recursos humanos y tecnológicos necesarios, garantizando su acceso a todas las operaciones, transacciones y documentación pertinente de la entidad [2].\n\nEn el caso de personas naturales o micro y pequeñas empresas, este rol puede ser asumido por la propia persona, un socio, administrador o ejecutivo [4]. Además, es responsable de verificar la correcta recepción de los Reportes de Operaciones Sospechosas (ROE) y de gestionar sus correcciones o rectificaciones dentro de los plazos establecidos [3]."
     },
     {
       "id": "roe_definicion",
       "answerable": true,
       "gold_rank": 2,
-      "refused": null,
+      "refused": true,
       "citations": [],
       "cited_gold": 0,
       "facts_expected": 2,
       "facts_found": 0,
-      "latency_ms": 377,
-      "answer_latency_ms": 0,
-      "answer": null
+      "latency_ms": 12087,
+      "answer_latency_ms": 11815,
+      "answer": "No encontré respaldo suficiente en las fuentes oficiales para responder esta pregunta."
     },
     {
       "id": "solicitud_inscripcion",
       "answerable": true,
       "gold_rank": 4,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "ncg_502_cmf:0015",
+        "ncg_502_cmf:0009"
+      ],
+      "cited_gold": 1,
       "facts_expected": 2,
       "facts_found": 0,
-      "latency_ms": 396,
-      "answer_latency_ms": 0,
-      "answer": null
+      "latency_ms": 20216,
+      "answer_latency_ms": 19943,
+      "answer": "Para inscribirse en el Registro de Prestadores de Servicios Financieros, la entidad debe solicitar la inscripción previa a través del sitio web de la Comisión para el Mercado Financiero (CMF) [4]. La solicitud debe ser presentada por el representante legal o convencional, quien es responsable de la veracidad de la información [4].\n\nLa solicitud debe incluir: nombre o razón social, número de identificación (RUT, pasaporte o LEI), datos del representante en Chile, teléfono, correo electrónico y la URL del sitio web donde se publica la información autorizada [4]. Además, se deben acompañar los antecedentes exigidos por la normativa [4].\n\nEs requisito que la persona jurídica tenga como giro exclusivo la prestación de los servicios regulados por la Ley N°21.521, salvo excepciones específicas [1]. Una vez inscrita, la CMF otorga credenciales de acceso al sistema [1]."
     },
     {
       "id": "incidentes_cmf",
       "answerable": true,
       "gold_rank": 3,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "ncg_502_cmf:0138",
+        "ncg_502_cmf:0252",
+        "ncg_502_cmf:0067"
+      ],
+      "cited_gold": 1,
       "facts_expected": 2,
-      "facts_found": 0,
-      "latency_ms": 376,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 1,
+      "latency_ms": 17378,
+      "answer_latency_ms": 17101,
+      "answer": "Las plataformas de financiamiento colectivo y sistemas alternativos de transacción (Bloque 3) deben comunicar incidentes que afecten la continuidad del negocio, recursos, información o calidad de servicios. Ejemplos incluyen fallas en servicios críticos, problemas de seguridad tecnológica, ciberataques, malware, indisponibilidad de productos, fugas de datos, fraudes internos o externos y problemas con proveedores críticos [3].\n\nAdemás, las entidades de asesoría de inversión con más de 100 clientes activos en Chile deben reportar incidentes que afecten la información de la entidad o los datos personales de sus clientes, como problemas de seguridad, malware o pérdidas de información [5].\n\nEstos reportes deben realizarse a través del menú “INCIDENTES Y PÉRDIDAS OPERACIONALES” del canal oficial de la CMF, utilizando el formato del Anexo N° 2 [4]."
     },
     {
       "id": "divulgacion_plataformas",
       "answerable": true,
       "gold_rank": 1,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "ncg_502_cmf:0040",
+        "ley_21521:0014",
+        "ncg_502_cmf:0042"
+      ],
+      "cited_gold": 1,
       "facts_expected": 2,
-      "facts_found": 0,
-      "latency_ms": 381,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 1,
+      "latency_ms": 21521,
+      "answer_latency_ms": 21231,
+      "answer": "Las plataformas de financiamiento colectivo deben mantener actualizada y disponible para el público la siguiente información:\n\n1. **Estructura de comisiones:** Descripción de las remuneraciones o comisiones cobradas a financistas, beneficiarios o ambos, y su método de determinación [1].\n2. **Conflictos de interés:** Existencia de conflictos derivados del modelo de negocio y su gestión [1][2].\n3. **Prevención de ilícitos:** Mecanismos para prevenir el financiamiento de proyectos fraudulentos, lavado de activos, terrorismo u otros delitos [1].\n4. **Gestión de riesgo:** Mecanismos para acotar o ajustar la exposición al riesgo de los financistas según sus expectativas [1].\n5. **Viabilidad de proyectos:** Procesos para analizar la viabilidad económica, financiera y jurídica de los proyectos, indicando límites o parámetros de exención [1].\n\nAdemás, al difundir un proyecto específico, deben entregar a los clientes potenciales información sobre el titular del proyecto, sus datos de contacto, el uso de los recursos, indicadores de monitoreo, la naturaleza jurídica del instrumento (incluyendo criptoactivos), el procedimiento de cierre de la ronda y el nivel recomendado de exposición al riesgo [1][4]."
     },
     {
       "id": "funcion_riesgos",
       "answerable": true,
       "gold_rank": 2,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "ncg_502_cmf:0126",
+        "ncg_502_cmf:0078",
+        "ncg_502_cmf:0151",
+        "ncg_502_cmf:0061",
+        "ncg_502_cmf:0164"
+      ],
+      "cited_gold": 1,
       "facts_expected": 2,
-      "facts_found": 0,
-      "latency_ms": 379,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 2,
+      "latency_ms": 21347,
+      "answer_latency_ms": 21068,
+      "answer": "La función de gestión de riesgos debe ser independiente de las áreas operativas, de negocios y de las unidades generadoras de riesgos de la entidad, así como de la instancia encargada de la función de auditoría interna [1][2][5].\n\nEn cuanto a su reporte, esta función debe reportar directamente al directorio u órgano equivalente de la entidad [1][2][3][4][5]. Esta estructura de independencia y reporte directo busca asegurar que el monitoreo de los controles definidos en las políticas y procedimientos de gestión de riesgos y control interno se realice adecuadamente y sin conflictos de interés [2][4]."
     },
     {
       "id": "controles_acceso",
       "answerable": true,
       "gold_rank": 4,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "ncg_502_cmf:0248",
+        "ncg_502_cmf:0106"
+      ],
+      "cited_gold": 1,
       "facts_expected": 1,
-      "facts_found": 0,
-      "latency_ms": 393,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 1,
+      "latency_ms": 18136,
+      "answer_latency_ms": 17833,
+      "answer": "La normativa exige privilegiar el uso de mecanismos de autenticación multifactor para acceder a instalaciones, infraestructuras y sistemas críticos [4]. Un mecanismo de autenticación se considera multifactor cuando utiliza una combinación de factores, como credenciales, contraseñas, certificados digitales o características biométricas, para confirmar la identidad del usuario [1]. Esta medida busca mitigar los riesgos de suplantación o uso indebido por parte de terceros [4]."
     },
     {
       "id": "impuestos_exchanges",
       "answerable": true,
       "gold_rank": 1,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "sii_faq_cripto:0002",
+        "sii_faq_cripto:0003"
+      ],
+      "cited_gold": 1,
       "facts_expected": 1,
-      "facts_found": 0,
-      "latency_ms": 380,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 1,
+      "latency_ms": 14140,
+      "answer_latency_ms": 13858,
+      "answer": "Sí, las ganancias obtenidas por la venta de criptomonedas en exchanges extranjeros deben ser declaradas en Chile. Según el SII, toda persona domiciliada o residente en Chile está obligada a pagar impuestos sobre sus rentas de cualquier origen, ya sean obtenidas en el país o en el extranjero [1].\n\nAdicionalmente, si el contribuyente determina su renta efectiva mediante contabilidad completa, las pérdidas derivadas de estas operaciones pueden computarse como gasto en el año comercial respectivo o en ejercicios futuros, siempre que sean necesarias para producir la renta, aunque no pueden rebajarse de otros ingresos afectos a impuestos finales [5]."
     },
     {
       "id": "comisiones_deducibles",
       "answerable": true,
       "gold_rank": 1,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "sii_faq_cripto:0004"
+      ],
+      "cited_gold": 1,
       "facts_expected": 1,
-      "facts_found": 0,
-      "latency_ms": 367,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 1,
+      "latency_ms": 13698,
+      "answer_latency_ms": 13433,
+      "answer": "Sí, las comisiones pagadas a un exchange pueden deducirse como gasto necesario para producir la renta, siempre que se cumplan los requisitos del artículo 31 de la Ley sobre Impuesto a la Renta (LIR) [1].\n\nLos contribuyentes del régimen Semi integrado pueden deducirlas bajo dicha norma [1]. Para quienes están acogidos al régimen Pro Pyme General, las comisiones deben estar efectivamente pagadas y cumplir con los mismos requisitos legales [1].\n\nEn cambio, las personas naturales que no están obligadas a determinar su renta efectiva según contabilidad completa no pueden deducir estas comisiones como parte del precio de compra al momento de la enajenación para efectos de la determinación del mayor valor [1]."
     },
     {
       "id": "mayor_valor",
       "answerable": true,
       "gold_rank": 1,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "sii_faq_cripto:0011",
+        "sii_faq_cripto:0010"
+      ],
+      "cited_gold": 1,
       "facts_expected": 2,
-      "facts_found": 0,
-      "latency_ms": 374,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 1,
+      "latency_ms": 12577,
+      "answer_latency_ms": 12281,
+      "answer": "Para personas naturales que no asignan las criptomonedas a su empresa individual, el mayor valor se calcula restando el costo tributario al precio de enajenación [1]. El costo tributario es el valor de adquisición reajustado según la variación del IPC entre el mes anterior a la compra y el anterior a la venta [1]. Este monto tributa solo con Impuesto Global Complementario o Adicional [1].\n\nEn cambio, si son empresarios individuales con los activos asignados a su empresa, o personas jurídicas, el mayor valor se afecta con los impuestos generales: Impuesto de Primera Categoría e Impuesto Global Complementario o Adicional, permitiendo deducir el primero como crédito contra el segundo [1][3]."
     },
     {
       "id": "dj1964_obligados",
       "answerable": true,
       "gold_rank": null,
-      "refused": null,
-      "citations": [],
+      "refused": false,
+      "citations": [
+        "sii_dj1964:0000"
+      ],
       "cited_gold": 0,
       "facts_expected": 1,
       "facts_found": 0,
-      "latency_ms": 385,
-      "answer_latency_ms": 0,
-      "answer": null
+      "latency_ms": 14547,
+      "answer_latency_ms": 14091,
+      "answer": "Los extractos proporcionados no contienen la respuesta a la pregunta sobre quiénes deben presentar la declaración jurada 1964. El extracto [2] menciona el título de la DJ 1964 y su marco legal, pero no especifica en el texto visible los sujetos obligados a presentarla. Por lo tanto, no es posible responder con la información disponible."
     },
     {
       "id": "dj1964_columna",
       "answerable": true,
       "gold_rank": 1,
-      "refused": null,
-      "citations": [],
-      "cited_gold": 0,
+      "refused": false,
+      "citations": [
+        "sii_dj1964:0011",
+        "sii_dj1964:0022"
+      ],
+      "cited_gold": 1,
       "facts_expected": 1,
-      "facts_found": 0,
-      "latency_ms": 371,
-      "answer_latency_ms": 0,
-      "answer": null
+      "facts_found": 1,
+      "latency_ms": 15296,
+      "answer_latency_ms": 15038,
+      "answer": "En la columna “Cripto Activo” de la Declaración Jurada 1964, se debe indicar el nombre del criptoactivo respecto al cual se completa la información transaccional [1]. Siempre que sea posible, la denominación debe ser coherente con el identificador del token digital, utilizando la convención de nombres para los criptoactivos de mayor capitalización que el SII proporciona en su instructivo o sitio web [1].\n\nSi no existe una convención disponible, los prestadores de servicios pueden usar texto libre, asegurando que la denominación sea consistente en el tiempo [1]. Además, si el criptoactivo no figura en la lista oficial, se puede agregar manualmente su identificación [2]. Por ejemplo, para transacciones con NFT se debe indicar “NFT”, y para nuevas monedas no listadas, se debe informar su abreviación (como “CLC” para “CHILE COIN”) [2]."
     },
     {
       "id": "fuera_iva_streaming",
       "answerable": false,
       "gold_rank": null,
-      "refused": null,
+      "refused": true,
       "citations": [],
       "cited_gold": 0,
       "facts_expected": 0,
       "facts_found": 0,
-      "latency_ms": 377,
-      "answer_latency_ms": 0,
-      "answer": null
+      "latency_ms": 16119,
+      "answer_latency_ms": 15845,
+      "answer": "No encontré respaldo suficiente en las fuentes oficiales para responder esta pregunta."
     },
     {
       "id": "fuera_sociedad",
       "answerable": false,
       "gold_rank": null,
-      "refused": null,
-      "citations": [],
+      "refused": false,
+      "citations": [
+        "ley_21521:0068",
+        "ncg_502_cmf:0010",
+        "ley_21521:0070"
+      ],
       "cited_gold": 0,
       "facts_expected": 0,
       "facts_found": 0,
-      "latency_ms": 375,
-      "answer_latency_ms": 0,
-      "answer": null
+      "latency_ms": 19780,
+      "answer_latency_ms": 19493,
+      "answer": "Los extractos proporcionados no detallan el procedimiento de constitución de una sociedad anónima cerrada. El artículo 2 de la Ley N° 18.046, modificado por la Ley Fintech, define a las sociedades anónimas cerradas como aquellas que no califican como abiertas (inscripción en el Registro de Valores) ni como especiales [2].\n\nAunque se menciona que las sociedades por acciones o en comandita pueden transformarse en sociedades anónimas si cumplen ciertas condiciones de inscripción [4], y que para el registro Fintech se requiere copia de la escritura de constitución [3], no se especifican los pasos legales, requisitos formales ni el proceso de creación inicial de esta figura societaria. Por lo tanto, no es posible describir cómo se constituye basándose exclusivamente en la información disponible."
     },
     {
       "id": "fuera_sec",
       "answerable": false,
       "gold_rank": null,
-      "refused": null,
+      "refused": true,
       "citations": [],
       "cited_gold": 0,
       "facts_expected": 0,
       "facts_found": 0,
-      "latency_ms": 370,
-      "answer_latency_ms": 0,
-      "answer": null
+      "latency_ms": 9887,
+      "answer_latency_ms": 9602,
+      "answer": "No encontré respaldo suficiente en las fuentes oficiales para responder esta pregunta."
     },
     {
       "id": "fuera_permiso",
       "answerable": false,
       "gold_rank": null,
-      "refused": null,
+      "refused": true,
       "citations": [],
       "cited_gold": 0,
       "facts_expected": 0,
       "facts_found": 0,
-      "latency_ms": 391,
-      "answer_latency_ms": 0,
-      "answer": null
+      "latency_ms": 16071,
+      "answer_latency_ms": 15804,
+      "answer": "No encontré respaldo suficiente en las fuentes oficiales para responder esta pregunta."
     },
     {
       "id": "fuera_nacionalidad",
       "answerable": false,
       "gold_rank": null,
-      "refused": null,
+      "refused": true,
       "citations": [],
       "cited_gold": 0,
       "facts_expected": 0,
       "facts_found": 0,
-      "latency_ms": 379,
-      "answer_latency_ms": 0,
-      "answer": null
+      "latency_ms": 14019,
+      "answer_latency_ms": 13751,
+      "answer": "No encontré respaldo suficiente en las fuentes oficiales para responder esta pregunta."
     }
   ]
 }

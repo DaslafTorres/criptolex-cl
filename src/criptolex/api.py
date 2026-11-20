@@ -88,7 +88,12 @@ def get_answerer() -> AnswerFn:
                 "LLM_PROVIDER=extractive for a no-LLM demo."
             ),
         )
-    client = GroqClient(settings.groq_api_key, settings.llm_model, settings.llm_timeout)
+    client = GroqClient(
+        settings.groq_api_key,
+        settings.llm_model,
+        settings.llm_timeout,
+        settings.llm_max_tokens,
+    )
     return lambda question, hits: generate_answer(question, hits, client)
 
 

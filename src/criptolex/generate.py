@@ -9,10 +9,11 @@ sources the answer actually used.
 from __future__ import annotations
 
 import re
+import time
 from dataclasses import dataclass
 from typing import Protocol
 
-from groq import Groq
+from groq import Groq, RateLimitError
 
 from .retrieve import Retrieved, index_text
 
@@ -78,25 +79,63 @@ class ChatClient(Protocol):
     def complete(self, system: str, user: str) -> str: ...
 
 
-class GroqClient:
-    """Thin wrapper so tests can inject a fake client instead of hitting the API."""
+MAX_RETRIES = 3
+DEFAULT_RETRY_WAIT = 5.0
+MAX_RETRY_WAIT = 60.0
 
-    def __init__(self, api_key: str, model: str, timeout: float = 30.0) -> None:
+
+def retry_wait(exc: RateLimitError) -> float:
+    """Seconds to wait before retrying a 429, from ``retry-after`` when present."""
+    headers = getattr(getattr(exc, "response", None), "headers", None) or {}
+    raw = headers.get("retry-after")
+    try:
+        wait = float(raw) if raw is not None else DEFAULT_RETRY_WAIT
+    except (TypeError, ValueError):
+        wait = DEFAULT_RETRY_WAIT
+    return max(0.5, min(wait, MAX_RETRY_WAIT))
+
+
+class GroqClient:
+    """Thin wrapper so tests can inject a fake client instead of hitting the API.
+
+    The free tier limits tokens per minute per model, so a 429 is a normal
+    condition, not an error: the client waits and retries instead of failing the
+    request. Rate limits depend on the model, which is why the request size is
+    configurable (``LLM_MAX_TOKENS``).
+    """
+
+    def __init__(
+        self,
+        api_key: str,
+        model: str,
+        timeout: float = 30.0,
+        max_tokens: int = 700,
+    ) -> None:
         self.model = model
+        self.max_tokens = max_tokens
         self._client = Groq(api_key=api_key, timeout=timeout)
         self.prompt_tokens = 0
         self.completion_tokens = 0
 
     def complete(self, system: str, user: str) -> str:
-        response = self._client.chat.completions.create(
-            model=self.model,
-            temperature=0,
-            max_tokens=1024,
-            messages=[
-                {"role": "system", "content": system},
-                {"role": "user", "content": user},
-            ],
-        )
+        messages = [
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ]
+        for attempt in range(1, MAX_RETRIES + 1):
+            try:
+                response = self._client.chat.completions.create(
+                    model=self.model,
+                    temperature=0,
+                    max_tokens=self.max_tokens,
+                    messages=messages,
+                )
+                break
+            except RateLimitError as exc:
+                if attempt >= MAX_RETRIES:
+                    raise
+                time.sleep(retry_wait(exc))
+
         usage = response.usage
         if usage is not None:
             self.prompt_tokens += usage.prompt_tokens
@@ -117,7 +156,13 @@ def build_prompt(question: str, hits: list[Retrieved]) -> str:
 
 
 def clean_citations(text: str, n_sources: int) -> tuple[str, list[int]]:
-    """Drop citations that point outside the supplied extracts."""
+    """Drop citations that point outside the supplied extracts.
+
+    Full-width brackets (``【1】``) are normalised first: some models served by
+    Groq emit them instead of ``[1]``, and dropping a valid citation would mark a
+    correct answer as ungrounded.
+    """
+    text = text.replace("【", "[").replace("】", "]")
     cited: set[int] = set()
 
     def replace(match: re.Match[str]) -> str:
