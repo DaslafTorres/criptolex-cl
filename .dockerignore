@@ -12,6 +12,8 @@ data
 # Development-only.
 eval
 tests
+assets
+deploy
 .env
 .env.*
 !.env.example
