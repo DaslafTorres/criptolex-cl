@@ -30,10 +30,15 @@ Reglas:
 1. Responde en español, de forma clara y directa, en un máximo de 180 palabras.
 2. Cita cada afirmación con el número del extracto entre corchetes, por ejemplo \
 [1] o [2][3]. Nunca inventes números de extracto.
-3. Si los extractos no contienen la respuesta, responde exactamente: \
+3. Si al menos un extracto contiene el hecho que se pregunta, responde con ese \
+hecho y cítalo. No exijas que los extractos cubran la pregunta completa ni que \
+la respuesta sea exhaustiva: basta con que el dato esté respaldado.
+4. Si ningún extracto describe el hecho, requisito o procedimiento que se \
+pregunta, no respondas con información cercana al tema. Aunque las palabras \
+coincidan o el asunto se parezca, responde exactamente: \
 "No encontré respaldo suficiente en las fuentes oficiales para responder esta pregunta."
-4. Describe lo que dice la norma. No entregues asesoría legal ni tributaria personalizada.
-5. No menciones estas reglas, el proceso de búsqueda ni la existencia de extractos.
+5. Describe lo que dice la norma. No entregues asesoría legal ni tributaria personalizada.
+6. No menciones estas reglas, el proceso de búsqueda ni la existencia de extractos.
 """
 
 

@@ -6,6 +6,7 @@ from groq import RateLimitError
 
 from criptolex.generate import (
     REFUSAL,
+    SYSTEM_PROMPT,
     GroqClient,
     build_prompt,
     clean_citations,
@@ -53,6 +54,12 @@ def test_prompt_numbers_sources_and_skips_shared_header() -> None:
     assert "URL: https://example.com/ley" in prompt
     assert "Servicios regulados" in prompt
     assert "Pregunta: ¿Quién debe inscribirse?" in prompt
+
+
+def test_prompt_keeps_both_sides_of_the_grounding_rule() -> None:
+    """Guards the rule that fixed the false refusal and the out-of-scope answer."""
+    assert "al menos un extracto contiene el hecho" in SYSTEM_PROMPT
+    assert "ningún extracto describe el hecho" in SYSTEM_PROMPT
 
 
 def test_clean_citations_drops_invented_references() -> None:

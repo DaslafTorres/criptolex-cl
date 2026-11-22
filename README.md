@@ -279,15 +279,15 @@ uv run python eval/run_eval.py --generate      # + citations, facts, refusals
 | retrieval hit@5 | **0.90** (18/20) |
 | retrieval MRR@5 | 0.63 (0.61–0.63 across runs) |
 | retrieval latency p50 / p95 | 377 ms / 393 ms |
-| citation recall | **0.85** |
-| citation precision | 0.40 (strict definition, see below) |
-| fact recall | 0.70 |
+| citation recall | **0.90** |
+| citation precision | 0.49 (strict definition, see below) |
+| fact recall | 0.79 |
 | grounded rate | 0.95 |
-| abstention accuracy | 0.80 (4/5 out-of-scope questions refused) |
-| answer latency p50 / p95 | 14.5 s / 21.3 s (free-tier throttle, see below) |
-| cost | **$0.051** for 25 questions, ~$0.002 each |
+| abstention accuracy | **1.00** (5/5 out-of-scope questions refused) |
+| answer latency p50 / p95 | 15.5 s / 22.1 s (free-tier throttle, see below) |
+| cost | **$0.050** for 25 questions, ~$0.002 each |
 
-Generation runs on `qwen/qwen3.8-27b` via Groq and used 46.1k prompt / 3.5k
+Generation runs on `qwen/qwen3.8-27b` via Groq and used 48.2k prompt / 2.9k
 completion tokens in total. Latency and cost are measured end to end, including
 retrieval, reranking and the HTTP call.
 
@@ -318,18 +318,25 @@ several of the "incorrect" ones are articles that genuinely support the sentence
 but are not in the gold set, so this number understates citation quality. Recall
 is the one to watch; document-level precision is on the roadmap.
 
-The 14 s p50 is not model latency. Groq's free tier allows 1,000 output tokens
+The 15 s p50 is not model latency. Groq's free tier allows 1,000 output tokens
 per minute, so the harness waits between calls to stay under the limit. With a
 paid key the same call returns in 0.4–1.2 s.
 
-Two failures are worth naming instead of hiding:
+The prompt says what to do in both directions, and the evaluation is the reason
+it is worded that way. An earlier version only said "if the extracts do not
+contain the answer, refuse", which produced both failure modes at once: it
+declined `roe_definicion` while the gold chunk sat at rank 2, and it answered the
+out-of-scope "how do you incorporate a closed corporation?" by describing a
+nearby definition. Splitting the rule into *answer when at least one extract
+contains the fact* and *refuse when no extract describes the requested fact or
+procedure* took abstention accuracy from 0.80 to 1.00 and citation recall from
+0.85 to 0.90.
 
-- one false refusal (`roe_definicion`): the gold chunk was retrieved at rank 2 and
-  the model still declined, so the prompt is too conservative, not the retrieval;
-- one out-of-scope question answered (`fuera_sociedad`): asked how to incorporate
-  a closed corporation, it explained the definition instead of refusing.
-
-Both are prompt-level fixes queued for the next iteration.
+One false refusal remains, and it is a retrieval failure rather than a prompt
+one: `dj1964_obligados` asks who must file form 1964, the gold chunk ranks 7th
+behind a paragraph about form **1891**, and the model now refuses instead of
+answering from the neighbouring declaration. That is the behaviour we want when
+the evidence is missing; fixing it means fixing the ranking.
 
 Reproducing the generation numbers needs a Groq key in `GROQ_API_KEY`. Without
 one, `LLM_PROVIDER=extractive` keeps the demo honest: it quotes a retrieved
@@ -346,7 +353,7 @@ citation and refusal, is in [`eval/results.json`](eval/results.json).
 - [x] API `/ask` + chat UI
 - [x] Golden evaluation set (25 questions) with fact validation
 - [x] Retrieval metrics: hit@5 0.90, MRR@5 0.63
-- [x] Generation metrics: citation recall 0.85, fact recall 0.70, abstention 0.80, $0.002/question
+- [x] Generation metrics: citation recall 0.90, fact recall 0.79, abstention 1.00, $0.002/question
 - [ ] Embedding and chunk-size benchmark (English vs multilingual MiniLM)
 - [x] Deploy on Modal: public URL, scale to zero, cold start under 10 s
 - [ ] Short demo GIF for the README
