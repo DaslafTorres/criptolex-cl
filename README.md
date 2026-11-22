@@ -300,7 +300,7 @@ retrieval, reranking and the HTTP call.
 search and the cross-encoder both order near-ties slightly differently between
 processes, which is worth knowing before reading too much into a single run.
 
-The two retrieval misses are honest ranking errors, not missing evidence:
+The retrieval misses are honest ranking errors, not missing evidence:
 
 1. *"¿Qué entidades están obligadas a informar operaciones sospechosas?"* — the
    list of obliged entities (Ley 19.913, artículo 3) never enters the top 5;
@@ -311,9 +311,16 @@ The two retrieval misses are honest ranking errors, not missing evidence:
    declaration. The question shares almost every word with the wrong answer and
    only the form number differs, which is exactly the case where "looks
    relevant" is not good enough.
+3. *"¿Cómo se calcula el mayor valor **al vender** criptomonedas?"* — the same
+   question phrased "*en la venta* de criptomonedas" returns the right FAQ chunk
+   at rank 1; "al vender" pushes it out of the top 5, the model refuses instead of
+   answering from the neighbouring chunks, and the system behaves exactly as it
+   should with the evidence it was given. Two words decide whether this question
+   is answerable, which is a sharper illustration of the retriever's limits than
+   any average.
 
-Both golds sit inside the top 8, so the next things to test are a metadata boost
-when a question names a specific form, and query expansion for list questions.
+The first two golds sit inside the top 8, so the next things to test are a metadata
+boost when a question names a specific form, and query expansion for list questions.
 
 ### How to read the generation numbers
 
