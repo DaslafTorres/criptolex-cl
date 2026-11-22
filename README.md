@@ -8,6 +8,8 @@ RAG assistant over **Chilean crypto and fintech regulation**, with citation-leve
 
 Ask a question in Spanish, get an answer grounded in official sources — with the document, article and link it came from.
 
+![Asking about crypto taxes and getting an answer with source cards, then an out-of-scope question that is refused](assets/demo.gif)
+
 > ⚠️ Informational only. Not legal or tax advice.
 
 ## Status
@@ -142,9 +144,12 @@ still builds (the workflow is green).
 
 The public demo runs on [Modal](https://modal.com) and pulls that exact image
 with `Image.from_registry`, so there is no second build to drift out of sync.
-[`deploy/modal_app.py`](deploy/modal_app.py) is ~40 lines: it attaches the Groq
-secret, requests 2 cores / 4 GB, keeps the container warm for five minutes after
-the last request and scales to zero when idle.
+[`deploy/modal_app.py`](deploy/modal_app.py) resolves the current GHCR **digest**
+at deploy time instead of trusting the `:latest` tag: Modal caches images by
+recipe, so a tag-only reference would quietly keep serving the first build it ever
+pulled. The wrapper attaches the Groq secret, requests 2 cores / 4 GB, keeps the
+container warm for five minutes after the last request and scales to zero when
+idle.
 
 ```bash
 modal secret create groq-api-key GROQ_API_KEY=gsk_...
@@ -356,7 +361,7 @@ citation and refusal, is in [`eval/results.json`](eval/results.json).
 - [x] Generation metrics: citation recall 0.90, fact recall 0.79, abstention 1.00, $0.002/question
 - [ ] Embedding and chunk-size benchmark (English vs multilingual MiniLM)
 - [x] Deploy on Modal: public URL, scale to zero, cold start under 10 s
-- [ ] Short demo GIF for the README
+- [x] Demo GIF recorded from the live deployment
 
 ## License
 

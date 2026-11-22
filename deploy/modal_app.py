@@ -13,7 +13,9 @@ Deploy with:
 
 from __future__ import annotations
 
+import json
 import logging
+import urllib.request
 
 import modal
 
@@ -21,12 +23,47 @@ logger = logging.getLogger(__name__)
 
 APP_NAME = "criptolex-cl"
 SECRET_NAME = "groq-api-key"
+GHCR_REPO = "daslaftorres/criptolex-cl"
+
+
+def registry_digest(repository: str, tag: str = "latest") -> str:
+    """Resolve the digest behind a GHCR tag so every deploy pins an exact image.
+
+    Modal caches images by recipe, so ``:latest`` alone would keep reusing the
+    first build it ever saw, silently running stale code after a redeploy.
+    """
+    scope = f"repository:{repository}:pull"
+    token_url = f"https://ghcr.io/token?scope={scope}&service=ghcr.io"
+    with urllib.request.urlopen(token_url, timeout=30) as response:  # noqa: S310
+        token = json.load(response)["token"]
+    request = urllib.request.Request(  # noqa: S310
+        f"https://ghcr.io/v2/{repository}/manifests/{tag}",
+        headers={
+            "Authorization": f"Bearer {token}",
+            "Accept": (
+                "application/vnd.oci.image.index.v1+json, "
+                "application/vnd.docker.distribution.manifest.list.v2+json"
+            ),
+        },
+        method="HEAD",
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        return response.headers["Docker-Content-Digest"]
+
 
 app = modal.App(APP_NAME)
 
+try:
+    IMAGE_REF = f"ghcr.io/{GHCR_REPO}@{registry_digest(GHCR_REPO)}"
+except Exception:  # pragma: no cover - fall back to the tag if GHCR is unreachable
+    logger.warning("could not resolve the GHCR digest, falling back to :latest", exc_info=True)
+    IMAGE_REF = f"ghcr.io/{GHCR_REPO}:latest"
+
+print(f"deploying {IMAGE_REF}")
+
 # Same image the Dockerfile builds and the Docker workflow pushes. It runs as a
 # non-root user and keeps the venv on PATH, which is all Modal needs.
-image = modal.Image.from_registry("ghcr.io/daslaftorres/criptolex-cl:latest")
+image = modal.Image.from_registry(IMAGE_REF)
 
 
 @app.function(
