@@ -3,10 +3,13 @@
 [![CI](https://github.com/DaslafTorres/criptolex-cl/actions/workflows/ci.yml/badge.svg)](https://github.com/DaslafTorres/criptolex-cl/actions/workflows/ci.yml)
 [![Docker](https://github.com/DaslafTorres/criptolex-cl/actions/workflows/docker.yml/badge.svg)](https://github.com/DaslafTorres/criptolex-cl/actions/workflows/docker.yml)
 [![Live demo](https://img.shields.io/badge/live_demo-open-3fb950)](https://daslaftorresarteaga--criptolex-cl-web.us-east.modal.run)
+[![Case study](https://img.shields.io/badge/case_study-read-8b9cff)](https://daslaftorres.github.io/work/criptolex-cl/)
 
 RAG assistant over **Chilean crypto and fintech regulation**, with citation-level evaluation.
 
 Ask a question in Spanish, get an answer grounded in official sources — with the document, article and link it came from.
+
+How it was built, what broke and the published numbers: **[case study](https://daslaftorres.github.io/work/criptolex-cl/)** · [en español](https://daslaftorres.github.io/es/work/criptolex-cl/).
 
 ![Asking about crypto taxes and getting an answer with source cards, then an out-of-scope question that is refused](assets/demo.gif)
 
